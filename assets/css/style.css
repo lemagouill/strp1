@@ -253,12 +253,36 @@ code, kbd { font-family: var(--mono); font-size: .9em; }
 .nav { display: none; }
 .nav__list { display: flex; align-items: center; gap: .35rem; }
 .nav__link {
-  display: block; padding: .55rem .9rem; border-radius: var(--r-sm);
+  display: inline-flex; align-items: center; gap: .45rem; padding: .52rem .9rem; border-radius: var(--r-sm);
   font-size: .92rem; font-weight: 650; color: var(--muted);
-  transition: color .18s ease, background-color .18s ease;
+  transition: color .18s ease, background-color .18s ease, border-color .18s ease, box-shadow .18s ease, transform .18s ease;
 }
-.nav__link:hover { color: var(--ink); background: var(--canvas); }
+.nav__link:hover { color: var(--ink); background: rgba(255, 255, 255, 0.06); }
 .nav__link[aria-current="page"] { color: #ffffff; font-weight: 750; background: var(--accent-tint); border: 1px solid rgba(99, 91, 255, 0.3); }
+
+/* Highlighted Browse Accounts Link */
+.nav__link--highlight,
+.nav__link[href="browse.html"] {
+  color: #34d399 !important;
+  font-weight: 750;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.16);
+}
+.nav__link--highlight:hover,
+.nav__link[href="browse.html"]:hover {
+  color: #6ee7b7 !important;
+  background: rgba(16, 185, 129, 0.22);
+  border-color: rgba(16, 185, 129, 0.55);
+  box-shadow: 0 0 22px rgba(16, 185, 129, 0.35);
+  transform: translateY(-1px);
+}
+
+.nav-pulse-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: #10b981; box-shadow: 0 0 8px #10b981;
+  animation: pulse-green 1.5s infinite; flex-shrink: 0;
+}
 
 .header__actions { display: flex; align-items: center; gap: .75rem; }
 .header__cta { display: none; padding: .52rem 1.15rem; font-size: .88rem; border-radius: 8px; }
