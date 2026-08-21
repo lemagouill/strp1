@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@500;600;700&amp;display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="assets/css/style.css?v=5.0">
+<link rel="stylesheet" href="assets/css/style.css?v=5.1">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to main content</a>
@@ -125,64 +125,53 @@
           </div>
         </div>
 
-        <!-- Glassmorphic Checkout Mockup Widget (Hero Right Side) -->
-        <div class="checkout-mockup-wrapper">
-          <div class="checkout-badge-conversion">+47% conversion</div>
-          
-          <div class="checkout-glass-card">
-            <div class="checkout-glass-header">
-              <span class="checkout-secure-title">Secure checkout</span>
-              <span class="checkout-secured-tag">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                Secured
-              </span>
+        <!-- Live Account Preview Component (Hero Right Side) -->
+        <div class="live-preview-widget">
+          <div class="preview-card" style="background: rgba(15, 23, 42, 0.75); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.15);">
+            <div class="listing__proof-box" style="margin-bottom:.5rem">
+              <img src="assets/images/Stripe_USA_82k_2026_InstantPayout.png" alt="Stripe USA $82k Instant Payout Dashboard Screenshot Proof" class="listing__proof-img">
+              <span class="listing__proof-tag"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg> Real Audit Screenshot (Click to enlarge)</span>
             </div>
 
-            <div class="checkout-product-row">
-              <div class="checkout-prod-left">
-                <div class="checkout-prod-icon">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="m9 12 2 2 4-4"/></svg>
-                </div>
-                <div>
-                  <div class="checkout-prod-name">Premium Box</div>
-                  <div class="checkout-prod-qty">Qty: 1</div>
-                </div>
+            <div class="preview-card__head">
+              <div class="preview-card__brand">
+                <svg width="22" height="22" viewBox="0 0 28 28" fill="none"><path d="M0 0h17v11h11v17H0z" fill="#635BFF"/><rect x="19.5" y="0" width="8.5" height="8.5" fill="#10B981"/></svg>
+                <span>Stripe US LLC — Verified Asset</span>
               </div>
-              <div class="checkout-prod-price">$89.90</div>
+              <span class="preview-card__status">LIVE &amp; AUDITED</span>
             </div>
 
-            <div class="checkout-inputs">
-              <div class="checkout-input-box">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
-                <span>4242 &nbsp;4242 &nbsp;4242 &nbsp;4242</span>
+            <div class="preview-card__title">Stripe USA Account — $82,000 Processed</div>
+            
+            <div class="preview-metrics">
+              <div class="preview-metric">
+                <span class="preview-metric__label">PROCESSED REVENUE</span>
+                <span class="preview-metric__val">$82,000+</span>
+                <span class="preview-metric__sub">€75,000+ (0% CB)</span>
               </div>
-              <div class="checkout-inputs-split">
-                <div class="checkout-input-box">
-                  <span>12/27</span>
-                </div>
-                <div class="checkout-input-box checkout-input-cvc">
-                  <span>•••</span>
-                </div>
+              <div class="preview-metric">
+                <span class="preview-metric__label">PAYOUT SPEED</span>
+                <span class="preview-metric__val">Instant (0m)</span>
+                <span class="preview-metric__sub">On-demand bank transfer</span>
               </div>
             </div>
 
-            <div class="checkout-btn-confirmed">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Payment confirmed</span>
+            <div class="preview-checklist">
+              <div class="preview-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg> <span><strong>Anti-Detect Profile Supplied:</strong> AdsPower / GoLogin pre-configured</span></div>
+              <div class="preview-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg> <span><strong>Dedicated US Proxy:</strong> Residential IP pre-installed</span></div>
+              <div class="preview-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg> <span><strong>Selfie KYC Submitted:</strong> Passport + US EIN pre-approved</span></div>
+              <div class="preview-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg> <span><strong>7-Day Replacement Warranty:</strong> Full 1-week coverage</span></div>
             </div>
 
-            <div class="checkout-divider">
-              <span>or</span>
-            </div>
-
-            <div class="checkout-btn-wallet">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" fill="#FBBC05"/>
-                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" fill="#EA4335"/>
-              </svg>
-              <span>Google Pay</span>
+            <div class="preview-card__foot">
+              <div>
+                <span class="preview-price">€2,450</span>
+                <span class="preview-escrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Licensed Escrow Protection</span>
+              </div>
+              <a class="btn btn--primary" href="https://t.me/hanscapo" target="_blank" rel="noopener">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.56 8.16l-1.97 9.28c-.15.65-.53.81-1.07.51l-3.02-2.23-1.46 1.41c-.16.16-.3.3-.61.3l.22-3.08 5.6-5.06c.24-.22-.05-.34-.37-.13l-6.92 4.36-2.98-.93c-.65-.2-.66-.65.14-.96l11.66-4.49c.54-.2 1.01.12.84.82z"/></svg>
+                Contact Telegram
+              </a>
             </div>
           </div>
         </div>

@@ -1,15 +1,15 @@
-# Walkthrough — Corsopay Logo & Favicon Integration
+# Walkthrough — HD CorsoVault Official Logo & Favicon
 
-Updated the platform's logo and favicon with the latest uploaded official Corsopay asset:
+Processed the newly uploaded high-resolution **CorsoVault** image:
 
-## 1. Clean HD Logo Asset (`assets/images/logo.png`):
-- Extracted and cleaned the silver/white origami emblem with the "Corsopay" typography (`272x97`).
-- Removed all stray noise artifacts and rendered with transparent alpha channel.
-- Sharpened and enhanced contrast for crisp visibility over dark and transparent backgrounds.
+## 1. Clean HD Transparency (`assets/images/logo.png`):
+- Extracted the silver metallic origami emblem and pure white `Corsovault` typography at native high-resolution (`961x342`).
+- Removed the checkerboard background pattern completely with smooth alpha transparency.
+- 0px dead margin padding for sharp, retina-crisp display in the header and footer.
 
-## 2. Square HD Favicon (`assets/images/favicon.png`, `favicon.png`, `favicon.ico`):
-- Extracted the silver origami emblem as a clean `128x128` square transparent icon.
-- Generated `favicon.png` and `favicon.ico` with cache buster `?v=3` across all pages.
+## 2. HD Square Favicon (`assets/images/favicon.png`, `favicon.png`, `favicon.ico`):
+- Generated crisp `376x376` transparent origami mark favicon files.
+- Updated `<link rel="icon">` cache busters to `?v=4` across all pages.
 
 ## 3. GitHub Push (`lemagouill/strp1`):
 - Pushed commit directly to GitHub: [https://github.com/lemagouill/strp1.git](https://github.com/lemagouill/strp1.git).
