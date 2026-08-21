@@ -1,20 +1,21 @@
-# Walkthrough — Direct Telegram Form Submission & Error Fix (StripeVault)
+# Walkthrough — Full Platform Rebranding to CorsoVault
 
-Fixed form submission across the website so clicking send directly connects users with `@hanscapo` on Telegram without errors:
+Successfully rebranded the entire website and infrastructure from StripeVault to **CorsoVault**:
 
-## 1. Fixed Form Handling (`assets/js/main.js`):
-- **Problem**: The form was trying to POST to static endpoint `#` and failed with generic error message `Sending failed. Email us directly at deals@example.com`.
-- **Fix**: Replaced the failed fetch logic with instant Telegram routing:
-  - Validates required fields.
-  - Automatically launches `https://t.me/hanscapo` in a new tab.
-  - Displays a clear, prominent confirmation banner: `⚡ Request ready! Opening Telegram... If Telegram did not open, Click here to message @hanscapo on Telegram.`
-  - Dynamically updates the button text to `Message @hanscapo on Telegram`.
+## 1. Global Brand Name Update:
+- Replaced all brand headers, logos, page titles (`<title>`), and Open Graph meta tags across all pages with **CorsoVault**:
+  - `index.html` (Homepage)
+  - `browse.html` (Accounts Catalog)
+  - `sell.html` (Sell Account Valuation)
+  - `contact.html` (Order & Support Desk)
+  - `how-it-works.html` (Handover Guide)
+  - `faq.html` (Frequently Asked Questions)
+  - `legal.html` (Legal Notice & Privacy Policy)
+  - `terms.html` (Terms of Service)
+  - `assets/css/style.css` (Stylesheet documentation)
 
-## 2. Cleaned Fallback Email Attributes:
-- Removed `data-fallback-email="deals@example.com"` and configured direct Telegram actions in `sell.html` and `contact.html`.
+## 2. Updated Domain References:
+- Updated legal emails and contact addresses to `deals@corsovault.com`.
 
-## 3. Global Cache-Buster `?v=3.6`:
-- Updated cache busters for all JS scripts and stylesheets across the site to `v=3.6`.
-
-## 4. GitHub Push (`lemagouill/strp1`):
+## 3. GitHub Push (`lemagouill/strp1`):
 - Pushed commit directly to GitHub: [https://github.com/lemagouill/strp1.git](https://github.com/lemagouill/strp1.git).

@@ -241,9 +241,21 @@ code, kbd { font-family: var(--mono); font-size: .9em; }
 .header.is-stuck { border-bottom-color: var(--line-2); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); }
 .header__inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 72px; }
 
-.brand { display: inline-flex; align-items: center; gap: .65rem; color: var(--ink); }
-.brand__mark { width: 24px; height: 24px; flex: 0 0 auto; display: block; }
-.brand__word { font-size: 1.22rem; font-weight: 850; letter-spacing: -.03em; color: var(--ink); }
+.brand { display: inline-flex; align-items: center; gap: .55rem; color: var(--ink); text-decoration: none; }
+.brand__logo-img { height: 32px; width: auto; max-width: 140px; display: block; object-fit: contain; }
+.brand__vault-pill {
+  font-family: var(--mono);
+  font-size: .65rem;
+  font-weight: 850;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #34d399;
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  padding: .18rem .45rem;
+  border-radius: 5px;
+  line-height: 1;
+}
 
 .nav { display: none; }
 .nav__list { display: flex; align-items: center; gap: .35rem; }
