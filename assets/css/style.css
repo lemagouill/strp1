@@ -254,7 +254,8 @@ code, kbd { font-family: var(--mono); font-size: .9em; }
 .nav__link:hover { color: var(--ink); background: var(--canvas); }
 .nav__link[aria-current="page"] { color: #ffffff; font-weight: 750; background: var(--accent-tint); border: 1px solid rgba(99, 91, 255, 0.3); }
 
-.header__cta { display: none; }
+.header__actions { display: flex; align-items: center; gap: .75rem; }
+.header__cta { display: none; padding: .52rem 1.15rem; font-size: .88rem; border-radius: 8px; }
 
 .burger {
   display: inline-flex; flex-direction: column; justify-content: center; gap: 5px;
