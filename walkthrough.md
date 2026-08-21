@@ -1,14 +1,10 @@
-# Walkthrough — 100% Transparent 3D Logo Deployed
+# Walkthrough — Navbar Link Wrapping Fixed
 
-## 1. 100% Transparent Background 3D Logo (`assets/images/logo.png`):
-- Fully removed the white background from the 3D chrome artwork.
-- Preserved all 3D metallic bevels, facet reflections, and letter extrusion with smooth anti-aliased alpha blending and zero white halo.
-- Generated matching transparent square favicons (`favicon.png`, `favicon.ico`).
-- Bumped cache busters to `?v=8` across all pages for instant reload.
+## 1. Strictly One-Line Navigation Bar (`assets/css/style.css`):
+- Added `white-space: nowrap;` and `flex-shrink: 0;` to `.nav__link`.
+- Added `flex-wrap: nowrap;` to `.nav__list`.
+- Added responsive spacing rules for intermediate screen widths (960px – 1160px) to prevent any horizontal squeeze or vertical wrapping of text across all menu items.
+- Bumped stylesheet cache buster to `?v=6.0` on all HTML templates.
 
-## 2. Clean URLs & Google Ads Guide:
-- Clean URLs deployed across all pages (`/`, `/browse`, `/accounts`, `/sell`, `/how-it-works`, `/faq`, `/contact`, `/legal`, `/terms`).
-- Full server routing configured with `.htaccess`, `vercel.json`, and `_redirects`.
-
-## 3. GitHub Push (`lemagouill/strp1`):
+## 2. GitHub Push (`lemagouill/strp1`):
 - Pushed commit directly to GitHub: [https://github.com/lemagouill/strp1.git](https://github.com/lemagouill/strp1.git).
