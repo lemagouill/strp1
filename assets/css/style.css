@@ -242,7 +242,7 @@ code, kbd { font-family: var(--mono); font-size: .9em; }
 .header__inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 72px; }
 
 .brand { display: inline-flex; align-items: center; color: var(--ink); text-decoration: none; }
-.brand__logo-img { height: 44px; width: auto; max-width: 220px; display: block; object-fit: contain; }
+.brand__logo-img { height: 42px; width: auto; max-width: 220px; display: block; object-fit: contain; }
 
 .nav { display: none; }
 .nav__list { display: flex; align-items: center; gap: .35rem; }
@@ -808,6 +808,7 @@ code, kbd { font-family: var(--mono); font-size: .9em; }
 .footer a { color: #94a3b8; font-size: .92rem; transition: color .18s ease; }
 .footer a:hover { color: #ffffff; }
 .footer .brand { color: #ffffff; }
+.footer .brand__logo-img { height: 46px; }
 .footer .brand__word { color: #ffffff; }
 .footer__grid { display: grid; gap: 2.5rem; }
 .footer__about p { color: #64748b; font-size: .91rem; margin-top: 1.1rem; max-width: 38ch; line-height: 1.6; }
