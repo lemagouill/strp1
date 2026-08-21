@@ -1,0 +1,18 @@
+/index.html    /              301
+/browse.html   /browse        301
+/accounts.html /accounts      301
+/sell.html     /sell          301
+/how-it-works.html /how-it-works 301
+/faq.html      /faq           301
+/contact.html  /contact       301
+/legal.html    /legal         301
+/terms.html    /terms         301
+
+/browse        /browse.html   200
+/accounts      /accounts.html 200
+/sell          /sell.html     200
+/how-it-works  /how-it-works.html 200
+/faq           /faq.html      200
+/contact       /contact.html  200
+/legal         /legal.html    200
+/terms         /terms.html    200

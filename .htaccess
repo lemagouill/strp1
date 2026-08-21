@@ -1,0 +1,26 @@
+RewriteEngine On
+RewriteBase /
+
+# Force HTTPS (optional if configured on server/CDN)
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Redirect /index.html or /index to /
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/index(\.html)? [NC]
+RewriteRule ^index(\.html)?$ / [R=301,L]
+
+# Redirect external .html requests to clean URL (e.g. /browse.html -> /browse)
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/([^\s]+)\.html [NC]
+RewriteRule ^%1$ /%1 [R=301,L]
+
+# Internally rewrite clean URL to .html if file exists (e.g. /browse -> browse.html)
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^([^/]+)/?$ $1.html [L,QSA]
+
+# Security Headers & Caching
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+</IfModule>
