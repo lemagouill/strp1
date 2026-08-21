@@ -1,11 +1,15 @@
-# Walkthrough — Full Dark Mode Harmonization & White Background Elimination (StripeVault)
+# Walkthrough — Restock Banner & Card Dark Mode Harmonization (StripeVault)
 
-Fixed the unwanted white background sections shown in the screenshot:
+Converted all remaining banners, tags, and chips into **Midnight Dark Obsidian Glassmorphism**:
 
-## 1. Eliminated All Residual Light Sections:
-- **Ecosystem Section Fixed (`index.html`)**: Replaced `background: #ffffff;` inline style on line 226 with `background: var(--surface);` (`#0d1322`).
-- **Live Trust Bar (`.trust-bar`) & Testimonials (`.feedback-card`)**: Converted background from `#ffffff` to deep obsidian dark (`#080c14` / `#0d1322`).
-- **Form Cards (`.form-card`) & Modals (`.lightbox-modal__content`)**: Converted light card containers into dark glassmorphic surfaces with subtle glowing borders.
+## 1. Converted Restock & Drop Queue Banner (`.restock-banner`):
+- Changed background from light gradient (`#f0f0ff` / `#ecfdf5`) to **Midnight Dark Glassmorphism** (`rgba(13, 19, 34, 0.9)`).
+- Updated title text to high-contrast `#ffffff`, text to `#94a3b8`, and badge to neon emerald (`#34d399` on `rgba(16, 185, 129, 0.15)`).
 
-## 2. GitHub Push (`lemagouill/strp1`):
-- Pushed harmonization commit directly to GitHub: [https://github.com/lemagouill/strp1.git](https://github.com/lemagouill/strp1.git).
+## 2. Converted CTA Bands, Tags & Filter Chips:
+- `.cta-band`: Converted to `#0d1322` dark glass with glowing borders.
+- `.tag--warn`, `.tag--selfie`, `.tag--sold`: Converted light tag fills to translucent dark glass with bright text.
+- `.chip--on`: Converted active filter pill to neon indigo (`#635bff`) for contrast.
+
+## 3. GitHub Push (`lemagouill/strp1`):
+- Pushed commit directly to GitHub: [https://github.com/lemagouill/strp1.git](https://github.com/lemagouill/strp1.git).
