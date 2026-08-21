@@ -1,12 +1,13 @@
-# Walkthrough — Proof Screenshots Uniform Dimensions
+# Walkthrough — Hero Typography & Contrast Fine-Tuning
 
-## 1. Pixel-Perfect Identical Dimensions (`index.html` & `assets/css/style.css`):
-- **Image File Resampling**: All 5 Telegram delivery screenshot files have been resampled to exactly **490 × 1024 px** using native macOS `sips`.
-- **CSS Container Strict Ratio**:
-  - `aspect-ratio: 490 / 1024`
-  - `align-items: stretch`
-  - `object-fit: cover`
-  - Every single card and screenshot is now strictly identical in width, height, and alignment across all screens.
+## 1. Razor-Sharp "Instantly." (`index.html` & `assets/css/style.css`):
+- Removed the transparent gradient and blurry text-shadow conflict.
+- "Instantly." is now rendered in solid, crisp electric indigo (`#818cf8`) with maximum sharpness.
 
-## 2. GitHub Push (`lemagouill/strp1`):
+## 2. Background Contrast Fine-Tuning:
+- Darkened the video background overlay slightly (`rgba(8, 12, 22, 0.44 - 0.65)`) so that:
+  - The video animation remains clearly visible.
+  - All text (headline, description, badges, button notes) is 100% crisp and readable.
+
+## 3. GitHub Push (`lemagouill/strp1`):
 - Pushed commit directly to GitHub: [https://github.com/lemagouill/strp1.git](https://github.com/lemagouill/strp1.git).
