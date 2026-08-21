@@ -788,15 +788,19 @@ code, kbd { font-family: var(--mono); font-size: .9em; }
 
 /* ---------- Inner page header ---------- */
 .page-hero {
-  background: radial-gradient(circle at 50% 0%, rgba(99, 91, 255, 0.06) 0%, rgba(250, 250, 250, 0) 70%), var(--bg);
+  background: radial-gradient(circle at 50% 0%, rgba(99, 91, 255, 0.08) 0%, rgba(250, 250, 250, 0) 70%), var(--bg);
   border-bottom: 1px solid var(--line);
-  padding-block: clamp(2.5rem, 5vw, 4rem) clamp(2.5rem, 5vw, 3.8rem);
+  padding-block: clamp(1.6rem, 3vw, 2.4rem) clamp(1.2rem, 2.2vw, 1.6rem);
 }
 .page-hero h1 { max-width: 22ch; color: var(--ink); }
-.page-hero .lead { margin-top: 1.1rem; }
-.breadcrumb { font-family: var(--mono); font-size: .75rem; letter-spacing: .05em; color: var(--faint); margin-bottom: 1.4rem; font-weight: 700; }
+.page-hero .lead { margin-top: 0.6rem; }
+.breadcrumb { font-family: var(--mono); font-size: .75rem; letter-spacing: .05em; color: var(--faint); margin-bottom: 0.8rem; font-weight: 700; }
 .breadcrumb a { text-decoration: none; color: var(--muted); }
 .breadcrumb a:hover { color: var(--accent); }
+
+.page-hero + .section {
+  padding-top: 1.5rem;
+}
 
 /* ---------- Footer ---------- */
 .footer { background: #0f172a; color: #94a3b8; border-top: 1px solid var(--line); padding-block: clamp(3rem, 6vw, 4.5rem) 2.2rem; }
