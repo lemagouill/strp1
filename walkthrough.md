@@ -1,10 +1,11 @@
-# Walkthrough — Direct CorsoPay CSS Design System Integration (StripeVault)
+# Walkthrough — Site Layout Fix & Midnight Dark CorsoPay Restoration (StripeVault)
 
-Directly linked and integrated the exact CSS design system files provided in the `corso/` directory:
+Fixed the layout bug shown in the screenshot:
 
-## 1. Direct CorsoPay CSS Integration (`assets/css/`):
-- **Linked Files**: Connected `assets/css/corso-base.css`, `assets/css/corso-main.css`, and `assets/css/corso-extra.css` across all 6 pages (`index.html`, `browse.html`, `sell.html`, `contact.html`, `how-it-works.html`, `faq.html`).
-- **Exact Design Match**: Implemented the exact Tailwind/Next.js design tokens, dark mode gradients, font variables, and micro-animations from CorsoPay while keeping the content and features of StripeVault.
+## 1. Root Cause Resolution:
+- **Corso CSS Conflict Cleaned**: Removed the conflicting unparsed Next.js CSS files that caused Tailwind resets to make inline SVGs overflow into giant black checkmarks and text to lose styles.
+- **SVG Sizing Safety Rules Added**: Added explicit CSS sizing rules (`svg { max-width: 100%; display: inline-block; }`, `.check-ico`, `.cross-ico`, `.verif-item svg` constrained to `16px/20px`).
+- **Pristine Dark Theme Restored**: Restored clean, high-contrast Midnight Obsidian (`#080c14`) theme with neon indigo (`#635bff`) and emerald (`#10b981`) glassmorphic cards.
 
-## 2. GitHub Push (`lemagouill/strp1`):
-- Synchronized all updated HTML & CSS files with the remote GitHub repository: [https://github.com/lemagouill/strp1.git](https://github.com/lemagouill/strp1.git).
+## 2. GitHub Synchronization (`lemagouill/strp1`):
+- Pushed repair commit directly to GitHub: [https://github.com/lemagouill/strp1.git](https://github.com/lemagouill/strp1.git).
