@@ -246,7 +246,7 @@
   });
 
   document.addEventListener('click', function (e) {
-    var img = e.target.closest('.listing__proof-img, .feedback-proof__img');
+    var img = e.target.closest('.listing__proof-img, .feedback-proof__img, .proof-card__img');
     if (img) {
       e.preventDefault();
       openLightbox(img.getAttribute('src'), img.getAttribute('alt'));
