@@ -71,8 +71,8 @@ svg:not([width]) { max-width: 24px; max-height: 24px; }
   --shadow-hover: 0 20px 40px -12px rgba(99, 91, 255, 0.35), 0 0 0 1px rgba(99, 91, 255, 0.4);
 
   --pad:     clamp(1.15rem, 4vw, 2.5rem);
-  --gap:     clamp(1rem, 2vw, 1.5rem);
-  --section: clamp(3.5rem, 8vw, 6rem);
+  --gap:     clamp(0.85rem, 1.8vw, 1.25rem);
+  --section: clamp(1.8rem, 3.5vw, 2.8rem);
   --maxw:    1200px;
 
   --sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
@@ -338,7 +338,7 @@ code, kbd { font-family: var(--mono); font-size: .9em; }
 .hero {
   background: radial-gradient(circle at 50% 0%, rgba(99, 91, 255, 0.18) 0%, rgba(8, 12, 20, 0) 75%), var(--bg);
   border-bottom: 1px solid var(--line);
-  padding-block: clamp(3rem, 7vw, 5.5rem) clamp(3.5rem, 8vw, 6rem);
+  padding-block: clamp(2rem, 4.5vw, 3.5rem) clamp(1.8rem, 4vw, 3rem);
 }
 .hero__grid { display: grid; gap: clamp(2.5rem, 5vw, 4rem); align-items: center; }
 
