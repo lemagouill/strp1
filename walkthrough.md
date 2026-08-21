@@ -1,18 +1,14 @@
-# Walkthrough — KPI Text Alignment & 100% Mobile Optimization (StripeVault)
+# Walkthrough — 4-Tile KPI Metric Redesign & Anti-Break Fix (StripeVault)
 
-Fixed squished KPI metrics text and delivered full mobile optimization across the entire application:
+Completely redesigned the KPI metrics into 4 distinct mini-tiles and added cache-busting `?v=3.0`:
 
-## 1. Resolved Squished / Crushed KPI Metric Words (`.metrics`):
-- **Problem**: When `.metrics div` used a horizontal row with `white-space: nowrap` on labels, long labels took up most of the cell width, compressing values like `Oct 2021 (3 Yrs)` and `Instant (0 min)` into single-character vertical stacks.
-- **Fix**: Converted `.metrics div` to a clean **vertical column stack** (`flex-direction: column; align-items: flex-start; gap: .2rem;`).
-- The label sits cleanly on top (`CREATION DATE`), and the value takes 100% of the cell width on the bottom (`Oct 2021 (3 Yrs)`), perfectly aligned on one crisp row.
+## 1. 4 Discrete Glass Mini-Tiles (`.metrics div`):
+- **Design Overhaul**: Replaced the single flat box with **4 individual glassmorphic mini-cards** (`background: rgba(13, 19, 34, 0.95); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 8px;`).
+- **Vertical Hierarchy**: Label is on top in crisp monospace uppercase (`CREATION DATE`), and the value takes 100% of the tile width on the bottom (`2022 (2 Yrs)`).
+- **Anti-Break & Single-Line Guarantee**: Added `white-space: nowrap; overflow: hidden; text-overflow: ellipsis;` with concise labels and values (`Instant (0m)`, `0% Disputes`, `T+2 (48h)`).
 
-## 2. 100% Mobile Optimization Overhaul (`@media (max-width: 768px)`):
-- **Fluid Filter Scrolling**: Made `.filters` a smooth horizontal touch-scroll bar on phones without ugly line breaks or overflow.
-- **Full-Width Cards**: Single-column listing grid (`grid-template-columns: 1fr`) on mobile devices.
-- **Dark Mobile Action Bar**: Fixed `.sticky-cta` background to Midnight Dark glass (`rgba(8, 12, 20, 0.94)`).
-- **Responsive Telegram Widget**: Repositioned `.floating-telegram` on mobile (`bottom: 4.85rem;`) so it never blocks the sticky action buttons.
-- **Hero & Banner Responsiveness**: Reassurance pills and restock buttons adapt cleanly to narrow mobile screens.
+## 2. Global Cache-Buster `?v=3.0`:
+- Updated all HTML `<head>` stylesheet references to `<link rel="stylesheet" href="assets/css/style.css?v=3.0">` across all 6 pages (`index.html`, `browse.html`, `sell.html`, `contact.html`, `how-it-works.html`, `faq.html`) to prevent any browser cache issues.
 
 ## 3. GitHub Push (`lemagouill/strp1`):
 - Pushed commit directly to GitHub: [https://github.com/lemagouill/strp1.git](https://github.com/lemagouill/strp1.git).
