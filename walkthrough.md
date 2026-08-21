@@ -1,11 +1,14 @@
-# Walkthrough — Direct Telegram CTA Buttons & Instant Contact (StripeVault)
+# Walkthrough — Proof Images Height Increase & Direct Contact (StripeVault)
 
-Replaced all "Order Account" and "Pre-Reserve Account" buttons across the website with direct Telegram links:
+Enhanced the visual presentation of dashboard screenshot proof thumbnails and verified full responsive scaling:
 
-## 1. Direct Telegram Contact Buttons (`https://t.me/hanscapo`):
-- **Hero Featured Card**: Converted to **Contact Telegram** button linking directly to `@hanscapo` with Telegram SVG icon.
-- **All Active Account Listings**: Converted from "Order Account" to **Contact Telegram** (`target="_blank" rel="noopener"`).
-- **Coming Soon Accounts**: Converted to **Pre-Reserve (Telegram)** linking directly to `@hanscapo`.
+## 1. Increased Proof Image Heights (`.listing__proof-img`):
+- **Desktop Height**: Increased from `135px` to **`180px`**, allowing the dashboard graphs, transaction volumes, and status details to be fully and clearly visible without feeling cramped or cropped.
+- **Mobile Height**: Increased to **`170px`** for clear viewing on smartphones and tablets.
+- **Refined Proof Badge**: Streamlined the dark glass screenshot badge with improved padding and subtle shadow.
 
-## 2. GitHub Push (`lemagouill/strp1`):
+## 2. Global Cache-Buster `?v=3.1`:
+- Updated cache busters to `v=3.1` across the website to ensure immediate instant rendering.
+
+## 3. GitHub Push (`lemagouill/strp1`):
 - Pushed commit directly to GitHub: [https://github.com/lemagouill/strp1.git](https://github.com/lemagouill/strp1.git).
