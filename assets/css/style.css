@@ -821,8 +821,9 @@ code, kbd { font-family: var(--mono); font-size: .9em; }
   position: fixed; left: 0; right: 0; bottom: 0; z-index: 90;
   display: flex; gap: .9rem; align-items: center;
   padding: .75rem var(--pad) calc(.75rem + env(safe-area-inset-bottom));
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  background: rgba(8, 12, 20, 0.94);
+  backdrop-filter: saturate(180%) blur(16px);
+  -webkit-backdrop-filter: saturate(180%) blur(16px);
   border-top: 1px solid var(--line-2);
   transform: translateY(110%); transition: transform .26s ease;
 }
@@ -871,16 +872,27 @@ code, kbd { font-family: var(--mono); font-size: .9em; }
   display: flex; align-items: center; gap: .3rem; pointer-events: none;
 }
 
-/* Compact Refined Metric Grid */
+/* Compact Refined Metric Grid — Clean Stacked Layout (Never squished or wrapped vertically) */
 .metrics {
-  display: grid; grid-template-columns: repeat(2, 1fr); gap: .45rem .6rem;
-  padding: .7rem .85rem; background: rgba(8, 12, 20, 0.8);
+  display: grid; grid-template-columns: 1fr 1fr; gap: .6rem .8rem;
+  padding: .75rem .9rem; background: rgba(8, 12, 20, 0.85);
   border: 1px solid rgba(255, 255, 255, 0.08); border-radius: var(--r);
   margin-bottom: .75rem;
 }
-.metrics div { display: flex; align-items: center; justify-content: space-between; gap: .4rem; }
-.metrics dt { font-family: var(--mono); font-size: .63rem; letter-spacing: .05em; text-transform: uppercase; color: #64748b; font-weight: 750; white-space: nowrap; }
-.metrics dd { font-size: .86rem; font-weight: 850; color: #ffffff; letter-spacing: -.02em; line-height: 1.2; text-align: right; margin: 0; }
+.metrics div {
+  display: flex; flex-direction: column; align-items: flex-start;
+  gap: .2rem; min-width: 0;
+}
+.metrics dt {
+  font-family: var(--mono); font-size: .62rem; letter-spacing: .06em;
+  text-transform: uppercase; color: #64748b; font-weight: 750;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%;
+}
+.metrics dd {
+  font-size: .88rem; font-weight: 850; color: #ffffff;
+  letter-spacing: -.02em; line-height: 1.25; text-align: left;
+  margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%;
+}
 .metric-highlight { color: #34d399 !important; font-weight: 850 !important; }
 
 /* Refined Inline Verification Pills */
@@ -897,16 +909,6 @@ code, kbd { font-family: var(--mono); font-size: .9em; }
 .listing__price { display: block; font-size: 1.3rem; font-weight: 850; letter-spacing: -.04em; color: #ffffff; line-height: 1.1; }
 .listing__deal { display: block; font-family: var(--mono); font-size: .63rem; letter-spacing: .04em; text-transform: uppercase; color: #34d399; margin-top: .15rem; font-weight: 750; }
 .listing__foot .btn { padding: .52rem 1rem; font-size: .84rem; border-radius: 8px; }
-
-/* Verification List formatting */
-.verif-list { display: grid; gap: .5rem; margin-top: .45rem; padding-top: .45rem; }
-.verif-item {
-  display: flex; align-items: flex-start; gap: .6rem;
-  font-size: .84rem; color: var(--ink-2); line-height: 1.45;
-}
-.verif-item svg { width: 16px; height: 16px; color: var(--emerald-dark); flex-shrink: 0; margin-top: .15rem; }
-.verif-label { font-weight: 800; color: var(--ink); width: 105px; flex-shrink: 0; }
-.verif-val { flex: 1; }
 
 /* ---------- Lightbox Modal Overlay ---------- */
 .lightbox-modal {
@@ -1013,14 +1015,7 @@ code, kbd { font-family: var(--mono); font-size: .9em; }
   100% { opacity: 1; transform: scale(1); }
 }
 
-/* Verification Done List Items */
-.verif-list { display: grid; gap: .45rem; margin-top: .45rem; padding-top: .45rem; }
-.verif-item {
-  display: flex; align-items: flex-start; gap: .55rem;
-  font-size: .84rem; color: var(--ink-2); line-height: 1.45;
-}
-.verif-item svg { width: 16px; height: 16px; color: var(--emerald-dark); flex-shrink: 0; margin-top: .15rem; }
-.verif-item strong { color: var(--ink); font-weight: 750; }
+
 .metric-highlight { color: var(--emerald-dark) !important; font-weight: 800 !important; }
 
 /* Inline Notice */
@@ -1123,4 +1118,134 @@ code, kbd { font-family: var(--mono); font-size: .9em; }
 .feedback-card__author { display: flex; align-items: center; justify-content: space-between; font-size: .84rem; border-top: 1px solid var(--line); padding-top: .85rem; }
 .feedback-card__name { font-weight: 800; color: var(--ink); }
 .feedback-card__badge { font-family: var(--mono); font-size: .7rem; font-weight: 750; color: var(--emerald-dark); background: var(--emerald-tint); padding: .2rem .6rem; border-radius: 4px; border: 1px solid rgba(16, 185, 129, 0.25); }
+
+/* ---------- Ultimate Mobile Optimization Overhaul (< 768px) ---------- */
+@media (max-width: 768px) {
+  :root {
+    --pad: 1rem;
+  }
+  
+  /* Hero title & spacing */
+  .hero-corsopay {
+    min-height: auto;
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+  .hero-corsopay-title {
+    font-size: 2.35rem;
+    line-height: 1.12;
+  }
+  .hero-corsopay-sub {
+    font-size: .95rem;
+    line-height: 1.5;
+  }
+  
+  /* Reassurance badges */
+  .hero-reassurance-pills {
+    flex-direction: column;
+    align-items: stretch;
+    gap: .45rem;
+  }
+  .hero-pill-badge {
+    justify-content: center;
+    font-size: .74rem;
+    padding: .35rem .75rem;
+  }
+  
+  /* Filter chips horizontal scroll with smooth momentum */
+  .filters {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: .6rem;
+    margin-right: calc(-1 * var(--pad));
+    padding-right: var(--pad);
+    scrollbar-width: none;
+  }
+  .filters::-webkit-scrollbar { display: none; }
+  .filters__label { display: none; }
+  .chip { flex-shrink: 0; font-size: .82rem; padding: .38rem .85rem; }
+  
+  /* Cards & Listings full width */
+  .listings {
+    grid-template-columns: 1fr !important;
+    gap: 1.15rem;
+  }
+  .listing {
+    padding: 1.05rem;
+  }
+  .listing__title {
+    font-size: 1rem;
+  }
+  .listing__proof-img {
+    height: 130px;
+  }
+  
+  /* KPI metrics full mobile cleanliness (Never squished or wrapped vertically) */
+  .metrics {
+    grid-template-columns: 1fr 1fr;
+    gap: .55rem .65rem;
+    padding: .65rem .75rem;
+  }
+  .metrics div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .18rem;
+    min-width: 0;
+  }
+  .metrics dt { font-size: .58rem; }
+  .metrics dd { font-size: .84rem; }
+  
+  /* Verif pills on mobile */
+  .verif-pill {
+    font-size: .7rem;
+    padding: .18rem .45rem;
+  }
+  
+  /* Floating telegram widget positioning */
+  .floating-telegram {
+    bottom: 4.85rem;
+    right: 1rem;
+    padding: .6rem .85rem;
+    font-size: .78rem;
+  }
+  
+  /* Restock banner */
+  .restock-banner {
+    padding: 1.15rem;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+  .restock-banner .btn-row {
+    flex-direction: column;
+  }
+  .restock-banner .btn {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+  
+  /* Lightbox modal on mobile */
+  .lightbox-modal__content {
+    max-width: 96vw;
+    max-height: 90vh;
+    padding: .85rem;
+  }
+  
+  /* Forms on mobile */
+  .form-card {
+    padding: 1.25rem 1.1rem;
+  }
+  
+  /* Comparison grid on mobile */
+  .comparison-grid {
+    grid-template-columns: 1fr;
+  }
+  .comparison-card {
+    padding: 1.25rem;
+  }
+}
 
