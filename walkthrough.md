@@ -1,10 +1,10 @@
-# Walkthrough — Sub-Price Badge Standardized to IN STOCK
+# Walkthrough — Screenshot Badge Simplified
 
-## 1. Standardized Card Sub-Price Badges:
-- Replaced all inconsistent labels (`Fast 2h Handover · Escrow`, `Fast Transfer via Escrow`, `Handover in 2h via Escrow`, `Ready to Connect Store`) on active listing cards with clean green badge:
-  `IN STOCK`
+## 1. Simplified Screenshot Badges:
+- Replaced the long phrase `Real Audit Screenshot (Click to enlarge)` on every listing screenshot with the concise label:
+  `Click to enlarge`
 - Updated in:
-  - **`index.html`** (All 6 active featured listings)
+  - **`index.html`** (Hero preview widget + 6 featured listings)
   - **`browse.html`** (All 7 active inventory listings)
 
 ## 2. GitHub Push (`lemagouill/strp1`):
