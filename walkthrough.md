@@ -1,14 +1,18 @@
-# Walkthrough — Proof Images Height Increase & Direct Contact (StripeVault)
+# Walkthrough — Card Decluttering & Minimalist UI (StripeVault)
 
-Enhanced the visual presentation of dashboard screenshot proof thumbnails and verified full responsive scaling:
+Removed all verification pills across all listing cards for a cleaner, high-end SaaS appearance:
 
-## 1. Increased Proof Image Heights (`.listing__proof-img`):
-- **Desktop Height**: Increased from `135px` to **`180px`**, allowing the dashboard graphs, transaction volumes, and status details to be fully and clearly visible without feeling cramped or cropped.
-- **Mobile Height**: Increased to **`170px`** for clear viewing on smartphones and tablets.
-- **Refined Proof Badge**: Streamlined the dark glass screenshot badge with improved padding and subtle shadow.
+## 1. Removed Verification Pills (`.verif-list`):
+- Removed all checkmark bullet lists (`Director ID Verified`, `US EIN Active`, `Stock Invoices`, `GoLogin + Proxy`, `7-Day Warranty`) from every card across `index.html` and `browse.html`.
+- **Result**: Cards are now significantly more streamlined, displaying only:
+  1. High-resolution screenshot proof thumbnail
+  2. Account badge & Title
+  3. Short description
+  4. 4 discrete glass KPI mini-tiles
+  5. Price & Direct Telegram Contact CTA button
 
-## 2. Global Cache-Buster `?v=3.1`:
-- Updated cache busters to `v=3.1` across the website to ensure immediate instant rendering.
+## 2. Global Cache-Buster `?v=3.2`:
+- Updated cache busters to `v=3.2` across the website to ensure immediate instant rendering.
 
 ## 3. GitHub Push (`lemagouill/strp1`):
 - Pushed commit directly to GitHub: [https://github.com/lemagouill/strp1.git](https://github.com/lemagouill/strp1.git).
