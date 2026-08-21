@@ -125,53 +125,266 @@
           </div>
         </div>
 
-        <!-- Live Account Preview Component (Hero Right Side) -->
-        <div class="live-preview-widget">
-          <div class="preview-card" style="background: rgba(15, 23, 42, 0.75); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.15);">
-            <div class="listing__proof-box" style="margin-bottom:.5rem">
-              <img src="assets/images/Stripe_USA_82k_2026_InstantPayout.png" alt="Stripe USA $82k Instant Payout Dashboard Screenshot Proof" class="listing__proof-img">
-              <span class="listing__proof-tag"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg> Click to enlarge</span>
+        <!-- Live Account Preview Component (Auto-Swiping Carousel) -->
+        <div class="live-preview-widget" id="hero-preview-slider" aria-roledescription="carousel" aria-label="Featured in-stock accounts carousel">
+          <div class="slider-top-nav">
+            <div class="slider-live-badge">
+              <span class="pulse-dot"></span>
+              <span class="slider-live-text">IN STOCK (<span id="slide-num">1</span>/5)</span>
+            </div>
+            <div class="slider-nav-arrows">
+              <button class="slider-arrow slider-arrow--prev" id="slider-prev" type="button" aria-label="Previous account">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+              </button>
+              <button class="slider-arrow slider-arrow--next" id="slider-next" type="button" aria-label="Next account">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="slider-track-container">
+            <!-- Slide 1: Stripe US $82k Instant Payout -->
+            <div class="preview-slide is-active" data-index="0">
+              <div class="preview-card">
+                <div class="listing__proof-box" style="margin-bottom:.5rem">
+                  <img src="assets/images/Stripe_USA_82k_2026_InstantPayout.png" alt="Stripe USA $82k Instant Payout Dashboard Proof" class="listing__proof-img">
+                  <span class="listing__proof-tag"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg> Click to enlarge</span>
+                </div>
+                <div class="preview-card__head">
+                  <div class="preview-card__brand">
+                    <svg width="22" height="22" viewBox="0 0 28 28" fill="none"><path d="M0 0h17v11h11v17H0z" fill="#635BFF"/><rect x="19.5" y="0" width="8.5" height="8.5" fill="#10B981"/></svg>
+                    <span>Stripe US LLC — Verified Asset</span>
+                  </div>
+                  <span class="preview-card__status">IN STOCK</span>
+                </div>
+                <div class="preview-card__title">Stripe USA Account — $82,000 Processed</div>
+                <div class="preview-metrics">
+                  <div class="preview-metric">
+                    <span class="preview-metric__label">PROCESSED REVENUE</span>
+                    <span class="preview-metric__val">$82,000+</span>
+                    <span class="preview-metric__sub">$82k Vol (0% CB) · 2021 (3+ Yrs)</span>
+                  </div>
+                  <div class="preview-metric">
+                    <span class="preview-metric__label">PAYOUT SPEED</span>
+                    <span class="preview-metric__val">Instant (0m)</span>
+                    <span class="preview-metric__sub">On-demand bank transfer</span>
+                  </div>
+                </div>
+                <div class="preview-checklist">
+                  <div class="preview-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg> <span><strong>Anti-Detect Profile:</strong> AdsPower / GoLogin pre-configured</span></div>
+                  <div class="preview-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg> <span><strong>Dedicated US Proxy:</strong> Residential IP pre-installed</span></div>
+                  <div class="preview-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg> <span><strong>Selfie KYC Submitted:</strong> Passport + US EIN pre-approved</span></div>
+                  <div class="preview-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg> <span><strong>7-Day Replacement Warranty:</strong> Full 1-week coverage</span></div>
+                </div>
+                <div class="preview-card__foot">
+                  <div>
+                    <span class="preview-price">$2,450</span>
+                    <span class="preview-escrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Licensed Escrow Protection</span>
+                  </div>
+                  <a class="btn btn--primary" href="https://t.me/hanscapo" target="_blank" rel="noopener">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.56 8.16l-1.97 9.28c-.15.65-.53.81-1.07.51l-3.02-2.23-1.46 1.41c-.16.16-.3.3-.61.3l.22-3.08 5.6-5.06c.24-.22-.05-.34-.37-.13l-6.92 4.36-2.98-.93c-.65-.2-.66-.65.14-.96l11.66-4.49c.54-.2 1.01.12.84.82z"/></svg>
+                    Contact Telegram
+                  </a>
+                </div>
+              </div>
             </div>
 
-            <div class="preview-card__head">
-              <div class="preview-card__brand">
-                <svg width="22" height="22" viewBox="0 0 28 28" fill="none"><path d="M0 0h17v11h11v17H0z" fill="#635BFF"/><rect x="19.5" y="0" width="8.5" height="8.5" fill="#10B981"/></svg>
-                <span>Stripe US LLC — Verified Asset</span>
+            <!-- Slide 2: Stripe US $73k Instant Payout -->
+            <div class="preview-slide" data-index="1">
+              <div class="preview-card">
+                <div class="listing__proof-box" style="margin-bottom:.5rem">
+                  <img src="assets/images/Stripe_USA_73k_2026_InstantPayout.png" alt="Stripe USA $73k Instant Payout Dashboard Proof" class="listing__proof-img">
+                  <span class="listing__proof-tag"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg> Click to enlarge</span>
+                </div>
+                <div class="preview-card__head">
+                  <div class="preview-card__brand">
+                    <svg width="22" height="22" viewBox="0 0 28 28" fill="none"><path d="M0 0h17v11h11v17H0z" fill="#635BFF"/><rect x="19.5" y="0" width="8.5" height="8.5" fill="#10B981"/></svg>
+                    <span>Stripe US LLC — Verified Asset</span>
+                  </div>
+                  <span class="preview-card__status">IN STOCK</span>
+                </div>
+                <div class="preview-card__title">Stripe USA Account — $73,000 Processed</div>
+                <div class="preview-metrics">
+                  <div class="preview-metric">
+                    <span class="preview-metric__label">PROCESSED REVENUE</span>
+                    <span class="preview-metric__val">$73,000+</span>
+                    <span class="preview-metric__sub">$73k Vol (0% CB) · 2021 (3 Yrs)</span>
+                  </div>
+                  <div class="preview-metric">
+                    <span class="preview-metric__label">PAYOUT SPEED</span>
+                    <span class="preview-metric__val">Instant</span>
+                    <span class="preview-metric__sub">On-demand bank transfer</span>
+                  </div>
+                </div>
+                <div class="preview-checklist">
+                  <div class="preview-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg> <span><strong>Anti-Detect Profile:</strong> AdsPower / GoLogin ready</span></div>
+                  <div class="preview-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg> <span><strong>Dedicated US Proxy:</strong> Residential IP included</span></div>
+                  <div class="preview-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg> <span><strong>Selfie KYC Dossier:</strong> Passport + US EIN pre-approved</span></div>
+                  <div class="preview-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg> <span><strong>7-Day Warranty:</strong> Full Escrow protection</span></div>
+                </div>
+                <div class="preview-card__foot">
+                  <div>
+                    <span class="preview-price">$2,150</span>
+                    <span class="preview-escrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Escrow Handover</span>
+                  </div>
+                  <a class="btn btn--primary" href="https://t.me/hanscapo" target="_blank" rel="noopener">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.56 8.16l-1.97 9.28c-.15.65-.53.81-1.07.51l-3.02-2.23-1.46 1.41c-.16.16-.3.3-.61.3l.22-3.08 5.6-5.06c.24-.22-.05-.34-.37-.13l-6.92 4.36-2.98-.93c-.65-.2-.66-.65.14-.96l11.66-4.49c.54-.2 1.01.12.84.82z"/></svg>
+                    Contact Telegram
+                  </a>
+                </div>
               </div>
-              <span class="preview-card__status">LIVE &amp; AUDITED</span>
             </div>
 
-            <div class="preview-card__title">Stripe USA Account — $82,000 Processed</div>
-            
-            <div class="preview-metrics">
-              <div class="preview-metric">
-                <span class="preview-metric__label">PROCESSED REVENUE</span>
-                <span class="preview-metric__val">$82,000+</span>
-                <span class="preview-metric__sub">$82k Vol (0% CB)</span>
-              </div>
-              <div class="preview-metric">
-                <span class="preview-metric__label">PAYOUT SPEED</span>
-                <span class="preview-metric__val">Instant (0m)</span>
-                <span class="preview-metric__sub">On-demand bank transfer</span>
+            <!-- Slide 3: Stripe France $34k Instant Payout -->
+            <div class="preview-slide" data-index="2">
+              <div class="preview-card">
+                <div class="listing__proof-box" style="margin-bottom:.5rem">
+                  <img src="assets/images/Stripe_FR_31kEUR_2026_InstantPayout.png" alt="Stripe France 31k€ Dashboard Proof" class="listing__proof-img">
+                  <span class="listing__proof-tag"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg> Click to enlarge</span>
+                </div>
+                <div class="preview-card__head">
+                  <div class="preview-card__brand">
+                    <svg width="22" height="22" viewBox="0 0 28 28" fill="none"><path d="M0 0h17v11h11v17H0z" fill="#635BFF"/><rect x="19.5" y="0" width="8.5" height="8.5" fill="#10B981"/></svg>
+                    <span>Stripe France SASU — Verified</span>
+                  </div>
+                  <span class="preview-card__status">IN STOCK</span>
+                </div>
+                <div class="preview-card__title">Stripe France SASU — $34,000 Processed</div>
+                <div class="preview-metrics">
+                  <div class="preview-metric">
+                    <span class="preview-metric__label">PROCESSED REVENUE</span>
+                    <span class="preview-metric__val">$34,000+ (€31k)</span>
+                    <span class="preview-metric__sub">0% Disputes · 2022 (2 Yrs)</span>
+                  </div>
+                  <div class="preview-metric">
+                    <span class="preview-metric__label">PAYOUT SPEED</span>
+                    <span class="preview-metric__val">Instant (0m)</span>
+                    <span class="preview-metric__sub">SEPA on-demand transfer</span>
+                  </div>
+                </div>
+                <div class="preview-checklist">
+                  <div class="preview-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg> <span><strong>Anti-Detect Profile:</strong> AdsPower / GoLogin ready</span></div>
+                  <div class="preview-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg> <span><strong>Dedicated FR Proxy:</strong> Residential IP included</span></div>
+                  <div class="preview-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg> <span><strong>Selfie KYC Dossier:</strong> French SASU KBIS &amp; ID approved</span></div>
+                  <div class="preview-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg> <span><strong>7-Day Warranty:</strong> Full Escrow protection</span></div>
+                </div>
+                <div class="preview-card__foot">
+                  <div>
+                    <span class="preview-price">$1,450</span>
+                    <span class="preview-escrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Escrow Handover</span>
+                  </div>
+                  <a class="btn btn--primary" href="https://t.me/hanscapo" target="_blank" rel="noopener">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.56 8.16l-1.97 9.28c-.15.65-.53.81-1.07.51l-3.02-2.23-1.46 1.41c-.16.16-.3.3-.61.3l.22-3.08 5.6-5.06c.24-.22-.05-.34-.37-.13l-6.92 4.36-2.98-.93c-.65-.2-.66-.65.14-.96l11.66-4.49c.54-.2 1.01.12.84.82z"/></svg>
+                    Contact Telegram
+                  </a>
+                </div>
               </div>
             </div>
 
-            <div class="preview-checklist">
-              <div class="preview-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg> <span><strong>Anti-Detect Profile Supplied:</strong> AdsPower / GoLogin pre-configured</span></div>
-              <div class="preview-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg> <span><strong>Dedicated US Proxy:</strong> Residential IP pre-installed</span></div>
-              <div class="preview-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg> <span><strong>Selfie KYC Submitted:</strong> Passport + US EIN pre-approved</span></div>
-              <div class="preview-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg> <span><strong>7-Day Replacement Warranty:</strong> Full 1-week coverage</span></div>
+            <!-- Slide 4: Stripe France $27k Instant Payout -->
+            <div class="preview-slide" data-index="3">
+              <div class="preview-card">
+                <div class="listing__proof-box" style="margin-bottom:.5rem">
+                  <img src="assets/images/Stripe_FR_25kEUR_2026_InstantPayout.png" alt="Stripe France 25k€ Dashboard Proof" class="listing__proof-img">
+                  <span class="listing__proof-tag"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg> Click to enlarge</span>
+                </div>
+                <div class="preview-card__head">
+                  <div class="preview-card__brand">
+                    <svg width="22" height="22" viewBox="0 0 28 28" fill="none"><path d="M0 0h17v11h11v17H0z" fill="#635BFF"/><rect x="19.5" y="0" width="8.5" height="8.5" fill="#10B981"/></svg>
+                    <span>Stripe France EI — Verified</span>
+                  </div>
+                  <span class="preview-card__status">IN STOCK</span>
+                </div>
+                <div class="preview-card__title">Stripe France EI — $27,000 Processed</div>
+                <div class="preview-metrics">
+                  <div class="preview-metric">
+                    <span class="preview-metric__label">PROCESSED REVENUE</span>
+                    <span class="preview-metric__val">$27,000+ (€25k)</span>
+                    <span class="preview-metric__sub">0% Disputes · 2022 (2 Yrs)</span>
+                  </div>
+                  <div class="preview-metric">
+                    <span class="preview-metric__label">PAYOUT SPEED</span>
+                    <span class="preview-metric__val">Instant (0m)</span>
+                    <span class="preview-metric__sub">SEPA on-demand transfer</span>
+                  </div>
+                </div>
+                <div class="preview-checklist">
+                  <div class="preview-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg> <span><strong>Anti-Detect Profile:</strong> AdsPower / GoLogin ready</span></div>
+                  <div class="preview-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg> <span><strong>Dedicated FR Proxy:</strong> Residential IP included</span></div>
+                  <div class="preview-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg> <span><strong>Selfie KYC Dossier:</strong> French identity pre-approved</span></div>
+                  <div class="preview-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg> <span><strong>7-Day Warranty:</strong> Full Escrow protection</span></div>
+                </div>
+                <div class="preview-card__foot">
+                  <div>
+                    <span class="preview-price">$1,250</span>
+                    <span class="preview-escrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Escrow Handover</span>
+                  </div>
+                  <a class="btn btn--primary" href="https://t.me/hanscapo" target="_blank" rel="noopener">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.56 8.16l-1.97 9.28c-.15.65-.53.81-1.07.51l-3.02-2.23-1.46 1.41c-.16.16-.3.3-.61.3l.22-3.08 5.6-5.06c.24-.22-.05-.34-.37-.13l-6.92 4.36-2.98-.93c-.65-.2-.66-.65.14-.96l11.66-4.49c.54-.2 1.01.12.84.82z"/></svg>
+                    Contact Telegram
+                  </a>
+                </div>
+              </div>
             </div>
 
-            <div class="preview-card__foot">
-              <div>
-                <span class="preview-price">$2,450</span>
-                <span class="preview-escrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Licensed Escrow Protection</span>
+            <!-- Slide 5: Shopify Payments USA $20k -->
+            <div class="preview-slide" data-index="4">
+              <div class="preview-card">
+                <div class="listing__proof-box" style="margin-bottom:.5rem">
+                  <img src="assets/images/ShopifyPayments_USA_20k_Payout2-3days_0cb.png" alt="Shopify Payments USA $20k Dashboard Proof" class="listing__proof-img">
+                  <span class="listing__proof-tag"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg> Click to enlarge</span>
+                </div>
+                <div class="preview-card__head">
+                  <div class="preview-card__brand">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M18.8 6.5s-1.4.4-1.9.5c-.3-.8-.9-1.9-2-2.6-1.1-.7-2.3-.7-2.8-.7-.2 0-.3.1-.3.3 0 0 .7 4.7.7 4.8l-3.7.8c-.3.1-.4.4-.3.6 1 4.5 2.6 11.7 2.7 11.9.1.5.6.9 1.1.9h7.4c.6 0 1.1-.4 1.2-1l1.5-12.7c.1-.6-.3-1.1-.9-1.2zm-6.2-1.4c.4 0 1.2.1 1.9.6.7.5 1.1 1.4 1.3 2.1l-3.2.7s0-3.4 0-3.4z"/></svg>
+                    <span>Shopify Payments US — Verified</span>
+                  </div>
+                  <span class="preview-card__status">IN STOCK</span>
+                </div>
+                <div class="preview-card__title">Shopify Payments USA — $20,000 Processed</div>
+                <div class="preview-metrics">
+                  <div class="preview-metric">
+                    <span class="preview-metric__label">PROCESSED REVENUE</span>
+                    <span class="preview-metric__val">$20,000+</span>
+                    <span class="preview-metric__sub">0% Disputes · 2022 (2 Yrs)</span>
+                  </div>
+                  <div class="preview-metric">
+                    <span class="preview-metric__label">PAYOUT SPEED</span>
+                    <span class="preview-metric__val">T+2 (48h)</span>
+                    <span class="preview-metric__sub">Auto bank payout schedule</span>
+                  </div>
+                </div>
+                <div class="preview-checklist">
+                  <div class="preview-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg> <span><strong>Anti-Detect Profile:</strong> AdsPower / GoLogin ready</span></div>
+                  <div class="preview-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg> <span><strong>Dedicated US Proxy:</strong> Residential IP included</span></div>
+                  <div class="preview-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg> <span><strong>Selfie KYC Dossier:</strong> Passport + US EIN pre-approved</span></div>
+                  <div class="preview-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg> <span><strong>7-Day Warranty:</strong> Full Escrow protection</span></div>
+                </div>
+                <div class="preview-card__foot">
+                  <div>
+                    <span class="preview-price">$840</span>
+                    <span class="preview-escrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Escrow Handover</span>
+                  </div>
+                  <a class="btn btn--primary" href="https://t.me/hanscapo" target="_blank" rel="noopener">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.56 8.16l-1.97 9.28c-.15.65-.53.81-1.07.51l-3.02-2.23-1.46 1.41c-.16.16-.3.3-.61.3l.22-3.08 5.6-5.06c.24-.22-.05-.34-.37-.13l-6.92 4.36-2.98-.93c-.65-.2-.66-.65.14-.96l11.66-4.49c.54-.2 1.01.12.84.82z"/></svg>
+                    Contact Telegram
+                  </a>
+                </div>
               </div>
-              <a class="btn btn--primary" href="https://t.me/hanscapo" target="_blank" rel="noopener">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.56 8.16l-1.97 9.28c-.15.65-.53.81-1.07.51l-3.02-2.23-1.46 1.41c-.16.16-.3.3-.61.3l.22-3.08 5.6-5.06c.24-.22-.05-.34-.37-.13l-6.92 4.36-2.98-.93c-.65-.2-.66-.65.14-.96l11.66-4.49c.54-.2 1.01.12.84.82z"/></svg>
-                Contact Telegram
-              </a>
+            </div>
+          </div>
+
+          <!-- Progress Bar & Dots Indicator -->
+          <div class="slider-bottom-controls">
+            <div class="slider-progress-bar">
+              <div class="slider-progress-fill" id="slider-progress"></div>
+            </div>
+            <div class="slider-dots" id="slider-dots">
+              <button class="slider-dot is-active" data-dot="0" type="button" aria-label="Go to slide 1"></button>
+              <button class="slider-dot" data-dot="1" type="button" aria-label="Go to slide 2"></button>
+              <button class="slider-dot" data-dot="2" type="button" aria-label="Go to slide 3"></button>
+              <button class="slider-dot" data-dot="3" type="button" aria-label="Go to slide 4"></button>
+              <button class="slider-dot" data-dot="4" type="button" aria-label="Go to slide 5"></button>
             </div>
           </div>
         </div>

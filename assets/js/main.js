@@ -245,6 +245,143 @@
     }
   });
 
+  /* ---------- Hero Live Account Preview Auto-Swiper ---------- */
+  var heroSlider = document.getElementById('hero-preview-slider');
+  if (heroSlider) {
+    var slides = heroSlider.querySelectorAll('.preview-slide');
+    var dots = heroSlider.querySelectorAll('.slider-dot');
+    var prevBtn = document.getElementById('slider-prev');
+    var nextBtn = document.getElementById('slider-next');
+    var numDisplay = document.getElementById('slide-num');
+    var progressBar = document.getElementById('slider-progress');
+    
+    var currentIndex = 0;
+    var totalSlides = slides.length;
+    var slideDuration = 4500; // 4.5 seconds per slide
+    var timer = null;
+    var progressTimer = null;
+    var startTime = null;
+    var isPaused = false;
+
+    function showSlide(index) {
+      if (index < 0) index = totalSlides - 1;
+      if (index >= totalSlides) index = 0;
+      currentIndex = index;
+
+      slides.forEach(function (slide, i) {
+        slide.classList.toggle('is-active', i === currentIndex);
+      });
+
+      dots.forEach(function (dot, i) {
+        dot.classList.toggle('is-active', i === currentIndex);
+      });
+
+      if (numDisplay) {
+        numDisplay.textContent = String(currentIndex + 1);
+      }
+
+      resetProgress();
+    }
+
+    function resetProgress() {
+      if (progressBar) {
+        progressBar.style.transition = 'none';
+        progressBar.style.width = '0%';
+        void progressBar.offsetWidth; // force reflow
+        if (!isPaused) {
+          progressBar.style.transition = 'width ' + slideDuration + 'ms linear';
+          progressBar.style.width = '100%';
+        }
+      }
+    }
+
+    function startAutoPlay() {
+      stopAutoPlay();
+      isPaused = false;
+      resetProgress();
+      timer = setInterval(function () {
+        showSlide(currentIndex + 1);
+      }, slideDuration);
+    }
+
+    function stopAutoPlay() {
+      if (timer) clearInterval(timer);
+      if (progressBar) {
+        progressBar.style.transition = 'none';
+        progressBar.style.width = '0%';
+      }
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        showSlide(currentIndex - 1);
+        startAutoPlay();
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        showSlide(currentIndex + 1);
+        startAutoPlay();
+      });
+    }
+
+    dots.forEach(function (dot) {
+      dot.addEventListener('click', function () {
+        var idx = parseInt(this.getAttribute('data-dot'), 10);
+        if (!isNaN(idx)) {
+          showSlide(idx);
+          startAutoPlay();
+        }
+      });
+    });
+
+    // Pause on hover
+    heroSlider.addEventListener('mouseenter', function () {
+      isPaused = true;
+      if (timer) clearInterval(timer);
+      if (progressBar) {
+        progressBar.style.transition = 'none';
+      }
+    });
+
+    heroSlider.addEventListener('mouseleave', function () {
+      startAutoPlay();
+    });
+
+    // Touch swipe support
+    var touchStartX = 0;
+    var touchEndX = 0;
+
+    heroSlider.addEventListener('touchstart', function (e) {
+      touchStartX = e.changedTouches[0].screenX;
+      isPaused = true;
+      if (timer) clearInterval(timer);
+    }, { passive: true });
+
+    heroSlider.addEventListener('touchend', function (e) {
+      touchEndX = e.changedTouches[0].screenX;
+      var diff = touchStartX - touchEndX;
+      if (Math.abs(diff) > 40) {
+        if (diff > 0) {
+          // Swiped left -> next
+          showSlide(currentIndex + 1);
+        } else {
+          // Swiped right -> prev
+          showSlide(currentIndex - 1);
+        }
+      }
+      startAutoPlay();
+    }, { passive: true });
+
+    // Initialize first slide and timer
+    showSlide(0);
+    startAutoPlay();
+  }
+
+  /* ---------- Global Lightbox Click Trigger ---------- */
   document.addEventListener('click', function (e) {
     var img = e.target.closest('.listing__proof-img, .feedback-proof__img, .proof-card__img');
     if (img) {
