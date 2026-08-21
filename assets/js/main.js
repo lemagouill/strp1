@@ -188,49 +188,27 @@
         return;
       }
 
-      var endpoint = form.getAttribute('action') || '';
       var btn = form.querySelector('button[type="submit"]');
-
-      // No endpoint configured yet: fall back to a pre-filled email.
-      if (!endpoint || endpoint.indexOf('REPLACE') !== -1) {
-        var to = form.dataset.fallbackEmail || 'deals@example.com';
-        var d = new FormData(form);
-        var body = [];
-        d.forEach(function (v, k) {
-          if (k !== 'website' && String(v).trim()) body.push(k + ': ' + v);
-        });
-        window.location.href = 'mailto:' + to +
-          '?subject=' + encodeURIComponent((d.get('side') || 'Valuation request') + ' — ' + (d.get('name') || '')) +
-          '&body=' + encodeURIComponent(body.join('\n'));
-        status.textContent = 'Your email client is opening with the request pre-filled.';
-        status.classList.add('is-ok');
-        return;
+      if (btn) {
+        btn.disabled = true;
+        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.56 8.16l-1.97 9.28c-.15.65-.53.81-1.07.51l-3.02-2.23-1.46 1.41c-.16.16-.3.3-.61.3l.22-3.08 5.6-5.06c.24-.22-.05-.34-.37-.13l-6.92 4.36-2.98-.93c-.65-.2-.66-.65.14-.96l11.66-4.49c.54-.2 1.01.12.84.82z"/></svg> Connecting to Telegram…';
       }
 
-      if (btn) { btn.disabled = true; btn.dataset.label = btn.textContent; btn.textContent = 'Sending…'; }
+      var telegramUrl = 'https://t.me/hanscapo';
 
-      fetch(endpoint, {
-        method: 'POST',
-        body: new FormData(form),
-        headers: { Accept: 'application/json' }
-      })
-        .then(function (r) {
-          if (!r.ok) throw new Error('http ' + r.status);
-          form.reset();
-          status.textContent = 'Got it. We\'ll get back to you within one business day.';
-          status.classList.add('is-ok');
-          if (typeof window.gtag === 'function') {
-            window.gtag('event', 'generate_lead', { form: 'contact' });
-          }
-        })
-        .catch(function () {
-          status.textContent = 'Sending failed. Email us directly at ' +
-            (form.dataset.fallbackEmail || 'deals@example.com') + '.';
-          status.classList.add('is-err');
-        })
-        .finally(function () {
-      if (btn) { btn.disabled = false; btn.textContent = btn.dataset.label || 'Send request'; }
-        });
+      status.innerHTML = '⚡ <strong>Request ready!</strong> Opening Telegram... If Telegram did not open, <a href="https://t.me/hanscapo" target="_blank" rel="noopener" style="color: #34d399; text-decoration: underline; font-weight: 750;">Click here to message @hanscapo on Telegram</a>.';
+      status.classList.remove('is-err');
+      status.classList.add('is-ok');
+
+      // Open Telegram direct conversation
+      window.open(telegramUrl, '_blank');
+
+      setTimeout(function () {
+        if (btn) {
+          btn.disabled = false;
+          btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.56 8.16l-1.97 9.28c-.15.65-.53.81-1.07.51l-3.02-2.23-1.46 1.41c-.16.16-.3.3-.61.3l.22-3.08 5.6-5.06c.24-.22-.05-.34-.37-.13l-6.92 4.36-2.98-.93c-.65-.2-.66-.65.14-.96l11.66-4.49c.54-.2 1.01.12.84.82z"/></svg> Message @hanscapo on Telegram';
+        }
+      }, 1000);
     });
   }
 
