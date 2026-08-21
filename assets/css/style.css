@@ -590,9 +590,8 @@ code, kbd { font-family: var(--mono); font-size: .9em; }
 }
 
 .field { margin-bottom: 1.35rem; }
-.field label {
-  display: flex; align-items: center; justify-content: space-between;
-  font-family: var(--sans); font-size: .84rem; font-weight: 750;
+.field label, .field-label {
+  display: block; font-family: var(--sans); font-size: .84rem; font-weight: 750;
   letter-spacing: -.01em; color: var(--ink); margin-bottom: .45rem;
 }
 .field .req { color: var(--accent); font-weight: 800; margin-left: .2rem; }
@@ -625,14 +624,30 @@ code, kbd { font-family: var(--mono); font-size: .9em; }
 .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
 @media (max-width: 640px) { .field-row { grid-template-columns: 1fr; } }
 
+/* Checkbox Cards for Form Verification Options */
+.checkbox-grid { display: grid; gap: .65rem; margin-top: .5rem; }
+.checkbox-card {
+  display: flex !important; align-items: center !important; justify-content: flex-start !important; gap: .75rem !important;
+  padding: .75rem 1rem; background: #f8fafc; border: 1px solid #cbd5e1;
+  border-radius: var(--r); font-size: .88rem; color: var(--ink-2);
+  cursor: pointer; transition: all .18s ease; margin-bottom: 0 !important;
+  font-weight: 500 !important; letter-spacing: 0 !important;
+}
+.checkbox-card:hover { background: #ffffff; border-color: var(--accent); box-shadow: 0 2px 8px rgba(99, 91, 255, 0.08); }
+.checkbox-card input[type="checkbox"] {
+  width: 18px; height: 18px; flex: 0 0 auto; accent-color: var(--accent); cursor: pointer; margin: 0;
+}
+.checkbox-card__text { font-size: .88rem; color: var(--ink); font-weight: 650; line-height: 1.35; }
+.checkbox-card__text small { display: block; font-size: .78rem; font-weight: 400; color: var(--muted); margin-top: .1rem; }
+
 .consent {
-  display: flex; align-items: center; gap: .75rem;
+  display: flex; align-items: flex-start; gap: .75rem;
   padding: .9rem 1.1rem; background: var(--canvas);
   border: 1px solid var(--line); border-radius: var(--r);
   font-size: .88rem; color: var(--ink-2); margin-top: 1.2rem;
 }
-.consent input { width: 18px; height: 18px; flex: 0 0 auto; cursor: pointer; accent-color: var(--accent); }
-.consent label { font-size: .86rem; color: var(--ink-2); font-weight: 600; text-transform: none; letter-spacing: 0; cursor: pointer; margin: 0; }
+.consent input { width: 18px; height: 18px; flex: 0 0 auto; cursor: pointer; accent-color: var(--accent); margin-top: .15rem; }
+.consent label { font-size: .86rem; color: var(--ink-2); font-weight: 600; text-transform: none; letter-spacing: 0; cursor: pointer; margin: 0; display: block; justify-content: flex-start; }
 
 .form-status { display: none; margin-top: 1.2rem; padding: .9rem 1.1rem; font-size: .92rem; border-radius: var(--r-sm); border: 1px solid; }
 .form-status.is-ok  { display: block; background: var(--emerald-tint); color: var(--emerald-dark); border-color: rgba(16,185,129,0.3); }
