@@ -1,0 +1,5 @@
+<svg viewBox="0 0 80 54" xmlns="http://www.w3.org/2000/svg">
+  <!-- WooCommerce speech bubble logo -->
+  <path d="M8,0 H72 A8,8 0 0,1 80,8 V36 A8,8 0 0,1 72,44 H26 L11,54 L14,44 H8 A8,8 0 0,1 0,36 V8 A8,8 0 0,1 8,0 Z" fill="#7F54B3"/>
+  <text x="40" y="28" text-anchor="middle" fill="white" font-size="21" font-weight="bold" font-family="Arial,Helvetica,sans-serif">Woo</text>
+</svg>

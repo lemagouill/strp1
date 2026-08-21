@@ -1,0 +1,5 @@
+;!function(){try { var e="undefined"!=typeof globalThis?globalThis:"undefined"!=typeof global?global:"undefined"!=typeof window?window:"undefined"!=typeof self?self:{},n=(new e.Error).stack;n&&((e._debugIds|| (e._debugIds={}))[n]="e5f449d5-7c90-e1ca-27de-9eab96b2a523")}catch(e){}}();
+(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push(["object"==typeof document?document.currentScript:void 0,551961,e=>{"use strict";var o=e.i(843476),l=e.i(948148),n=e.i(207090);e.s(["default",0,function(){let e=(0,l.useTranslations)("Nav"),s={features:e("features"),pricing:e("pricing"),faq:e("faq"),blog:e("blog"),login:e("login"),apply_long:e("apply_long"),apply_short:e("apply_short"),open_menu:e("open_menu"),close_menu:e("close_menu")};return(0,o.jsx)(n.default,{messages:s})}])}]);
+
+//# debugId=e5f449d5-7c90-e1ca-27de-9eab96b2a523
+//# sourceMappingURL=0v8knp_u2p8j-.js.map

@@ -1,0 +1,14 @@
+{
+  "name": "Corsopay",
+  "short_name": "Corsopay",
+  "description": "Checkout professionnel pour Shopify — paiement instantané sans logo PayPal",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0f",
+  "theme_color": "#1848f0",
+  "icons": [
+    { "src": "/favicon-32.png", "sizes": "32x32", "type": "image/png" },
+    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "/favicon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
