@@ -251,10 +251,12 @@ code, kbd { font-family: var(--mono); font-size: .9em; }
 .brand__logo-img { height: 44px; width: auto; max-width: 240px; display: block; object-fit: contain; }
 
 .nav { display: none; }
-.nav__list { display: flex; align-items: center; gap: .35rem; }
+.nav__list { display: flex; align-items: center; gap: .3rem; flex-wrap: nowrap; }
 .nav__link {
-  display: inline-flex; align-items: center; gap: .45rem; padding: .52rem .9rem; border-radius: var(--r-sm);
-  font-size: .92rem; font-weight: 650; color: var(--muted);
+  display: inline-flex; align-items: center; gap: .4rem; padding: .48rem .75rem; border-radius: var(--r-sm);
+  font-size: .88rem; font-weight: 650; color: var(--muted);
+  white-space: nowrap;
+  flex-shrink: 0;
   transition: color .18s ease, background-color .18s ease, border-color .18s ease, box-shadow .18s ease, transform .18s ease;
 }
 .nav__link:hover { color: var(--ink); background: rgba(255, 255, 255, 0.06); }
@@ -262,7 +264,7 @@ code, kbd { font-family: var(--mono); font-size: .9em; }
 
 /* Highlighted Browse Accounts Link */
 .nav__link--highlight,
-.nav__link[href="browse.html"] {
+.nav__link[href="browse"] {
   color: #34d399 !important;
   font-weight: 750;
   background: rgba(16, 185, 129, 0.12);
@@ -270,7 +272,7 @@ code, kbd { font-family: var(--mono); font-size: .9em; }
   box-shadow: 0 0 15px rgba(16, 185, 129, 0.16);
 }
 .nav__link--highlight:hover,
-.nav__link[href="browse.html"]:hover {
+.nav__link[href="browse"]:hover {
   color: #6ee7b7 !important;
   background: rgba(16, 185, 129, 0.22);
   border-color: rgba(16, 185, 129, 0.55);
@@ -1338,6 +1340,24 @@ code, kbd { font-family: var(--mono); font-size: .9em; }
   .split { grid-template-columns: 1fr 1fr; }
   .form-layout { grid-template-columns: 1.4fr .6fr; }
   .steps { grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+}
+
+@media (min-width: 960px) and (max-width: 1160px) {
+  .nav__link {
+    padding: .42rem .55rem;
+    font-size: .84rem;
+    gap: .25rem;
+  }
+  .nav__list {
+    gap: .2rem;
+  }
+  .brand__logo-img {
+    height: 38px;
+  }
+  .header__cta {
+    padding: .45rem .85rem;
+    font-size: .82rem;
+  }
 }
 
 @media (min-width: 700px)  { .listings { grid-template-columns: repeat(2, 1fr); } }
