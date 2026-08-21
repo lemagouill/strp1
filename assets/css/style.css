@@ -872,26 +872,54 @@ code, kbd { font-family: var(--mono); font-size: .9em; }
   display: flex; align-items: center; gap: .3rem; pointer-events: none;
 }
 
-/* Compact Refined Metric Grid — Clean Stacked Layout (Never squished or wrapped vertically) */
+/* ---------- Premium Metric Mini-Cards (Bulletproof, Never Wrapped) ---------- */
 .metrics {
-  display: grid; grid-template-columns: 1fr 1fr; gap: .6rem .8rem;
-  padding: .75rem .9rem; background: rgba(8, 12, 20, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.08); border-radius: var(--r);
-  margin-bottom: .75rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.45rem;
+  margin-bottom: 0.8rem;
+  background: transparent;
+  padding: 0;
+  border: none;
 }
 .metrics div {
-  display: flex; flex-direction: column; align-items: flex-start;
-  gap: .2rem; min-width: 0;
+  background: rgba(13, 19, 34, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 0.5rem 0.65rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  min-width: 0;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 .metrics dt {
-  font-family: var(--mono); font-size: .62rem; letter-spacing: .06em;
-  text-transform: uppercase; color: #64748b; font-weight: 750;
-  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%;
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #64748b;
+  font-weight: 750;
+  margin-bottom: 0.15rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 .metrics dd {
-  font-size: .88rem; font-weight: 850; color: #ffffff;
-  letter-spacing: -.02em; line-height: 1.25; text-align: left;
-  margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%;
+  display: block;
+  font-size: 0.86rem;
+  font-weight: 850;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 .metric-highlight { color: #34d399 !important; font-weight: 850 !important; }
 
