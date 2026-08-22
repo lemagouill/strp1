@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   Sparkles, 
   Send, 
@@ -6,17 +6,12 @@ import {
   Calculator, 
   TrendingUp, 
   ShieldCheck, 
-  AlertCircle, 
   ArrowRight, 
   ArrowLeft,
-  Building,
-  User,
-  Mail,
-  Phone,
-  HelpCircle
+  Phone
 } from 'lucide-react';
 
-export default function AuditTool({ t, onOpenLegal }) {
+export default function AuditTool({ t, lang, onOpenLegal }) {
   const [step, setStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -36,6 +31,18 @@ export default function AuditTool({ t, onOpenLegal }) {
     gdpr: false
   });
 
+  // Sync defaults when language changes
+  useEffect(() => {
+    setFormData(prev => ({
+      ...prev,
+      volume: t.audit.form.volumeOptions[1],
+      gateway: t.audit.form.gatewayOptions[0],
+      cms: t.audit.form.cmsOptions[0],
+      markets: t.audit.form.marketsOptions[0],
+      friction: t.audit.form.frictionOptions[0],
+    }));
+  }, [t]);
+
   const [errors, setErrors] = useState({});
 
   const handleInputChange = (field, value) => {
@@ -45,20 +52,15 @@ export default function AuditTool({ t, onOpenLegal }) {
     }
   };
 
-  const validateStep1 = () => {
-    return true; // volume & gateway have defaults
-  };
-
-  const validateStep2 = () => {
-    return true; // cms, markets & friction have defaults
-  };
+  const validateStep1 = () => true;
+  const validateStep2 = () => true;
 
   const validateStep3 = () => {
     const errs = {};
-    if (!formData.name.trim()) errs.name = "Le nom est requis";
-    if (!formData.email.trim() || !formData.email.includes('@')) errs.email = "Une adresse e-mail professionnelle valide est requise";
-    if (!formData.company.trim()) errs.company = "Le nom de l'entreprise est requis";
-    if (!formData.gdpr) errs.gdpr = "Veuillez accepter les conditions de confidentialité";
+    if (!formData.name.trim()) errs.name = t.audit.form.errors.name;
+    if (!formData.email.trim() || !formData.email.includes('@')) errs.email = t.audit.form.errors.email;
+    if (!formData.company.trim()) errs.company = t.audit.form.errors.company;
+    if (!formData.gdpr) errs.gdpr = t.audit.form.errors.gdpr;
 
     setErrors(errs);
     return Object.keys(errs).length === 0;
@@ -79,7 +81,6 @@ export default function AuditTool({ t, onOpenLegal }) {
 
     setIsSubmitting(true);
 
-    // Simulate sending lead & generating report
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSuccess(true);
@@ -125,7 +126,7 @@ export default function AuditTool({ t, onOpenLegal }) {
                         {step > s ? <CheckCircle2 className="w-4 h-4" /> : s}
                       </div>
                       <span className={`text-xs font-semibold hidden sm:inline ${step === s ? 'text-white' : 'text-slate-500'}`}>
-                        {s === 1 ? 'Volumétrie' : s === 2 ? 'Infrastructure' : 'Coordonnées'}
+                        {s === 1 ? t.audit.form.step1Label : s === 2 ? t.audit.form.step2Label : t.audit.form.step3Label}
                       </span>
                     </div>
                   ))}
@@ -253,7 +254,7 @@ export default function AuditTool({ t, onOpenLegal }) {
                         {t.audit.form.step3Title}
                       </h3>
                       <p className="text-xs text-slate-400 mb-4">
-                        Où devons-nous vous transmettre le rapport d'analyse préliminaire ?
+                        {t.audit.form.step3Subtitle}
                       </p>
 
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -350,7 +351,7 @@ export default function AuditTool({ t, onOpenLegal }) {
                               onClick={() => onOpenLegal('privacy')}
                               className="text-brand-400 underline hover:text-brand-300"
                             >
-                              Politique de confidentialité
+                              {t.audit.form.privacyLinkText}
                             </button>.
                           </span>
                         </label>
@@ -368,7 +369,7 @@ export default function AuditTool({ t, onOpenLegal }) {
                         className="flex items-center space-x-1.5 px-4 py-2.5 rounded-xl border border-slate-800 text-slate-300 hover:text-white hover:bg-slate-800 text-xs font-semibold transition-colors"
                       >
                         <ArrowLeft className="w-4 h-4" />
-                        <span>Précédent</span>
+                        <span>{t.audit.form.prevBtn}</span>
                       </button>
                     ) : <div></div>}
 
@@ -378,7 +379,7 @@ export default function AuditTool({ t, onOpenLegal }) {
                         onClick={handleNext}
                         className="flex items-center space-x-2 px-6 py-3 rounded-xl bg-brand-500 hover:bg-brand-600 text-white text-xs sm:text-sm font-bold shadow-lg shadow-brand-500/25 transition-all"
                       >
-                        <span>Continuer</span>
+                        <span>{t.audit.form.nextBtn}</span>
                         <ArrowRight className="w-4 h-4" />
                       </button>
                     ) : (
@@ -424,10 +425,10 @@ export default function AuditTool({ t, onOpenLegal }) {
                   <p className="font-bold text-white border-b border-slate-800 pb-2">
                     {t.audit.form.successRecap}
                   </p>
-                  <p><span className="text-slate-400">Entreprise :</span> {formData.company}</p>
-                  <p><span className="text-slate-400">Passerelle analysée :</span> {formData.gateway}</p>
-                  <p><span className="text-slate-400">Volumétrie :</span> {formData.volume}</p>
-                  <p><span className="text-slate-400">Défi sélectionné :</span> {formData.friction}</p>
+                  <p><span className="text-slate-400">{t.audit.form.recapCompany}</span> {formData.company}</p>
+                  <p><span className="text-slate-400">{t.audit.form.recapGateway}</span> {formData.gateway}</p>
+                  <p><span className="text-slate-400">{t.audit.form.recapVolume}</span> {formData.volume}</p>
+                  <p><span className="text-slate-400">{t.audit.form.recapGoal}</span> {formData.friction}</p>
                 </div>
 
                 <p className="text-xs text-brand-400 font-medium">
@@ -441,7 +442,7 @@ export default function AuditTool({ t, onOpenLegal }) {
                   }}
                   className="px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300"
                 >
-                  Effectuer un autre diagnostic
+                  {t.audit.form.anotherDiagnosticBtn}
                 </button>
               </div>
             )}
@@ -475,22 +476,22 @@ export default function AuditTool({ t, onOpenLegal }) {
                 </div>
                 <div className="flex items-center space-x-2.5 p-2.5 rounded-xl bg-slate-950/40 border border-slate-800/60">
                   <TrendingUp className="w-4 h-4 text-brand-400 shrink-0" />
-                  <span>Routage intelligent de devises disponible</span>
+                  <span>{t.audit.diagnosticPreview.multiCurrencyBadge}</span>
                 </div>
               </div>
 
               <div className="mt-6 pt-4 border-t border-slate-800 text-[11px] text-slate-400 leading-relaxed">
-                🔒 Vos informations sont strictement confidentielles et ne sont jamais partagées avec des tiers.
+                {t.audit.diagnosticPreview.confidentialNotice}
               </div>
             </div>
 
             {/* Direct Phone Support Card */}
             <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-5 text-xs text-slate-300 space-y-2">
-              <p className="font-semibold text-white">Besoin d'un avis d'expert immédiat ?</p>
-              <p className="text-slate-400">Nos consultants répondent du lundi au vendredi de 9h à 19h.</p>
+              <p className="font-semibold text-white">{t.audit.diagnosticPreview.expertCallTitle}</p>
+              <p className="text-slate-400">{t.audit.diagnosticPreview.expertCallSubtitle}</p>
               <a href="tel:+33189714230" className="inline-flex items-center space-x-2 font-bold text-brand-400 hover:text-brand-300 pt-1">
                 <Phone className="w-3.5 h-3.5" />
-                <span>+33 1 89 71 42 30</span>
+                <span>{t.audit.diagnosticPreview.expertCallPhone}</span>
               </a>
             </div>
           </div>

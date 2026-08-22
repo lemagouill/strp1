@@ -14,10 +14,10 @@ import CookieBanner from './components/CookieBanner';
 import { translations } from './data/translations';
 
 export default function App() {
-  const [lang, setLang] = useState('fr');
+  const [lang, setLang] = useState('en');
   const [activeLegalModal, setActiveLegalModal] = useState(null);
 
-  const t = translations[lang] || translations.fr;
+  const t = translations[lang] || translations.en;
 
   // Update document title and meta description dynamically
   useEffect(() => {
@@ -77,6 +77,7 @@ export default function App() {
         {/* Free Audit Form & Interactive Diagnostic Tool */}
         <AuditTool
           t={t}
+          lang={lang}
           onOpenLegal={handleOpenLegal}
         />
 
@@ -115,6 +116,7 @@ export default function App() {
         <LegalModal
           docKey={activeLegalModal}
           lang={lang}
+          t={t}
           onClose={handleCloseLegal}
         />
       )}

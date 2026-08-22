@@ -1,5 +1,5 @@
 import React from 'react';
-import { Shield, Phone, Mail, MapPin, ExternalLink, ArrowUpRight, Lock, CheckCircle2 } from 'lucide-react';
+import { Shield, Phone, Mail, MapPin, ArrowUpRight, Lock, CheckCircle2 } from 'lucide-react';
 
 export default function Footer({ t, onOpenLegal, onScrollToAudit }) {
   return (
@@ -34,14 +34,14 @@ export default function Footer({ t, onOpenLegal, onScrollToAudit }) {
               {t.footer.navTitle}
             </h4>
             <ul className="space-y-2">
-              <li><a href="#services" className="hover:text-white transition-colors">Services</a></li>
-              <li><a href="#guide" className="hover:text-white transition-colors">Guide Technique</a></li>
-              <li><a href="#case-studies" className="hover:text-white transition-colors">Études de Cas</a></li>
-              <li><a href="#pricing" className="hover:text-white transition-colors">Tarifs Forfaits</a></li>
-              <li><a href="#faq" className="hover:text-white transition-colors">FAQ</a></li>
+              <li><a href="#services" className="hover:text-white transition-colors">{t.nav.services}</a></li>
+              <li><a href="#guide" className="hover:text-white transition-colors">{t.nav.guide}</a></li>
+              <li><a href="#case-studies" className="hover:text-white transition-colors">{t.nav.caseStudies}</a></li>
+              <li><a href="#pricing" className="hover:text-white transition-colors">{t.nav.pricing}</a></li>
+              <li><a href="#faq" className="hover:text-white transition-colors">{t.nav.faq}</a></li>
               <li>
                 <button onClick={onScrollToAudit} className="text-brand-400 hover:text-brand-300 font-semibold flex items-center space-x-1">
-                  <span>Audit Gratuit</span>
+                  <span>{t.nav.auditBtn}</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
                 </button>
               </li>
@@ -135,11 +135,11 @@ export default function Footer({ t, onOpenLegal, onScrollToAudit }) {
           <div className="flex items-center space-x-4">
             <span className="flex items-center space-x-1">
               <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
-              <span>Conforme RGPD 2016/679</span>
+              <span>{t.footer.gdprCompliant}</span>
             </span>
             <span className="flex items-center space-x-1">
               <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
-              <span>Audit de conformité 3DS2 / SCA</span>
+              <span>{t.footer.scaCompliant}</span>
             </span>
           </div>
         </div>

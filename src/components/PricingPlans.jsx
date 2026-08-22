@@ -91,7 +91,7 @@ export default function PricingPlans({ t, onScrollToAudit }) {
         {/* Guarantee Banner */}
         <div className="mt-14 max-w-2xl mx-auto text-center p-4 rounded-2xl bg-slate-900 border border-slate-800 flex items-center justify-center space-x-3 text-xs text-slate-300">
           <ShieldCheck className="w-5 h-5 text-emerald-400 shrink-0" />
-          <span>Toutes nos prestations incluent une période de garantie et d'assistance technique post-lancement.</span>
+          <span>{t.pricing.guaranteeNotice}</span>
         </div>
       </div>
     </section>

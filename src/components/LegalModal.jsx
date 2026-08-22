@@ -10,8 +10,8 @@ const docIcons = {
   cookies: Cookie,
 };
 
-export default function LegalModal({ docKey, lang, onClose }) {
-  const currentDocs = legalDocs[lang] || legalDocs.fr;
+export default function LegalModal({ docKey, lang, t, onClose }) {
+  const currentDocs = legalDocs[lang] || legalDocs.en;
   const doc = currentDocs[docKey] || currentDocs.mentions;
   const IconComponent = docIcons[docKey] || FileText;
 
@@ -42,7 +42,7 @@ export default function LegalModal({ docKey, lang, onClose }) {
                 {doc.title}
               </h3>
               <p className="text-xs text-slate-400 mt-0.5">
-                Corsovault Advisory SAS • Document Réglementaire Officiel
+                {t?.modal?.docOfficialBadge || "Corsovault Advisory SAS • Official Regulatory Disclosure"}
               </p>
             </div>
           </div>
@@ -51,14 +51,14 @@ export default function LegalModal({ docKey, lang, onClose }) {
             <button
               onClick={handlePrint}
               className="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-colors text-xs flex items-center space-x-1"
-              title="Imprimer le document"
+              title={t?.modal?.printTitle || "Print Document"}
             >
               <Printer className="w-4 h-4" />
             </button>
             <button
               onClick={onClose}
               className="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-colors"
-              aria-label="Fermer"
+              aria-label={t?.modal?.closeBtn || "Close"}
             >
               <X className="w-5 h-5" />
             </button>
@@ -86,13 +86,13 @@ export default function LegalModal({ docKey, lang, onClose }) {
         {/* Modal Footer */}
         <div className="p-4 sm:p-6 border-t border-slate-800 bg-slate-950/70 flex flex-wrap items-center justify-between gap-4 text-xs text-slate-400">
           <div>
-            Pour toute question juridique : <a href="mailto:legal@corsovault.com" className="text-brand-400 underline">legal@corsovault.com</a>
+            {t?.modal?.legalInquiryText || "For legal inquiries:"} <a href="mailto:legal@corsovault.com" className="text-brand-400 underline">legal@corsovault.com</a>
           </div>
           <button
             onClick={onClose}
             className="px-5 py-2 rounded-xl bg-brand-500 hover:bg-brand-600 text-white font-semibold text-xs shadow-md transition-all"
           >
-            Fermer la fenêtre
+            {t?.modal?.closeModalBtn || "Close"}
           </button>
         </div>
       </div>

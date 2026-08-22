@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Cookie, Shield, Check, X } from 'lucide-react';
+import { Cookie } from 'lucide-react';
 
 export default function CookieBanner({ t, onOpenLegal }) {
   const [visible, setVisible] = useState(false);
@@ -40,7 +40,7 @@ export default function CookieBanner({ t, onOpenLegal }) {
               onClick={() => onOpenLegal('cookies')}
               className="text-brand-400 underline hover:text-brand-300"
             >
-              En savoir plus
+              {t.cookie.learnMore}
             </button>.
           </p>
         </div>

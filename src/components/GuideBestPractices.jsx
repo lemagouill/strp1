@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BookOpen, Check, Copy, CheckCircle2, ShieldCheck, Terminal, Lightbulb, ExternalLink } from 'lucide-react';
+import { BookOpen, Check, Copy, CheckCircle2, Terminal, Lightbulb } from 'lucide-react';
 
 export default function GuideBestPractices({ t }) {
   const [activeTab, setActiveTab] = useState(0);
@@ -96,12 +96,12 @@ export default function GuideBestPractices({ t }) {
                   {copied ? (
                     <>
                       <Check className="w-3.5 h-3.5 text-emerald-400" />
-                      <span className="text-emerald-400">Copié !</span>
+                      <span className="text-emerald-400">{t.guide.copiedBtn}</span>
                     </>
                   ) : (
                     <>
                       <Copy className="w-3.5 h-3.5" />
-                      <span>Copier</span>
+                      <span>{t.guide.copyBtn}</span>
                     </>
                   )}
                 </button>
@@ -116,8 +116,8 @@ export default function GuideBestPractices({ t }) {
             <div className="mt-8 flex items-start space-x-3 p-4 rounded-xl bg-indigo-950/30 border border-indigo-500/20 text-xs sm:text-sm text-indigo-200">
               <Lightbulb className="w-5 h-5 text-indigo-400 shrink-0 mt-0.5" />
               <div>
-                <span className="font-bold text-white block mb-0.5">Conseil d'Architecture Corsovault :</span>
-                Ne déployez jamais une règle anti-fraude en mode "Block" immédiat sans avoir analysé son impact pendant au moins 14 jours en mode "Review" ou "Test". Cela protège vos acheteurs VIP d'un blocage intempestif.
+                <span className="font-bold text-white block mb-0.5">{t.guide.expertNoteTitle}</span>
+                {t.guide.expertNoteContent}
               </div>
             </div>
           </div>

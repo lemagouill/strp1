@@ -1,5 +1,5 @@
 import React from 'react';
-import { TrendingUp, ArrowRight, ShieldCheck, CheckCircle2, Award } from 'lucide-react';
+import { Award, ArrowRight } from 'lucide-react';
 
 export default function CaseStudies({ t, onScrollToAudit }) {
   return (
@@ -41,12 +41,12 @@ export default function CaseStudies({ t, onScrollToAudit }) {
                 {/* Challenge & Solution */}
                 <div className="space-y-4 mb-6 text-xs sm:text-sm text-slate-300">
                   <div className="p-3.5 rounded-xl bg-slate-950/60 border border-slate-800/80">
-                    <span className="font-bold text-red-400 block mb-1">Défi Initial :</span>
+                    <span className="font-bold text-red-400 block mb-1">{t.caseStudies.challengeLabel}</span>
                     <p className="text-slate-400 leading-relaxed">{cs.challenge}</p>
                   </div>
 
                   <div className="p-3.5 rounded-xl bg-slate-950/60 border border-slate-800/80">
-                    <span className="font-bold text-emerald-400 block mb-1">Solution Corsovault :</span>
+                    <span className="font-bold text-emerald-400 block mb-1">{t.caseStudies.solutionLabel}</span>
                     <p className="text-slate-400 leading-relaxed">{cs.solution}</p>
                   </div>
                 </div>
@@ -71,7 +71,7 @@ export default function CaseStudies({ t, onScrollToAudit }) {
                   onClick={onScrollToAudit}
                   className="w-full flex items-center justify-center space-x-2 py-2.5 px-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold transition-colors"
                 >
-                  <span>Obtenir les mêmes résultats</span>
+                  <span>{t.caseStudies.ctaBtn}</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </div>
