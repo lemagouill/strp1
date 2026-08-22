@@ -68,9 +68,10 @@
       ]
     }
     </script>
+    <script type="module" crossorigin src="./assets/index-ByCKBnCR.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-T8iUMtmI.css">
   </head>
   <body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-brand-500 selection:text-white">
     <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

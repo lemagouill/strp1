@@ -2,7 +2,7 @@ export const translations = {
   en: {
     meta: {
       title: "Corsovault | Global Payment Gateway Consulting & Setup Support",
-      description: "Independent consulting and technical integration for international payment gateways (Stripe, PayPal, Adyen). Free audit, 3DS2 optimization, fraud prevention, and global compliance."
+      description: "Independent consulting and technical integration for international payment gateways. Free audit, 3DS2 optimization, fraud prevention, and global compliance."
     },
     topbar: {
       badge: "Independent FinTech & Payment Gateway Advisory Firm",
@@ -22,7 +22,7 @@ export const translations = {
     hero: {
       tag: "GLOBAL PAYMENT GATEWAY CONSULTING & SETUP SUPPORT",
       title: "Global Payment Gateway Consulting & Setup Support",
-      subtitle: "We help startups and international e-commerce merchants configure, optimize, and secure their global payment gateways (Stripe, PayPal, Adyen, Braintree).",
+      subtitle: "We help startups and international e-commerce merchants configure, optimize, and secure their global payment gateways and checkout architectures.",
       ctaPrimary: "Start My Free Payment Audit",
       ctaSecondary: "Explore Best Practices Guide",
       stats: [
@@ -31,11 +31,11 @@ export const translations = {
         { value: "135+", label: "Currencies & local APMs supported" },
         { value: "99.99%", label: "Webhook & settlement reliability" }
       ],
-      trustNotice: "Independent from Stripe, PayPal & Adyen • 100% GDPR & PCI-DSS Level 1 Compliant"
+      trustNotice: "Independent Payment Gateway Advisory • 100% GDPR & PCI-DSS Level 1 Compliant"
     },
     badges: {
-      supported: "Supported Gateways & Payment Technologies",
-      gateways: ["Stripe Connect & Elements", "PayPal Commerce Platform", "Braintree", "Adyen", "Klarna & Afterpay", "Apple Pay & Google Pay", "iDEAL & Bancontact", "Shopify Payments", "WooCommerce", "Custom API"]
+      supported: "Supported Technologies & Gateway Architectures",
+      gateways: ["Hosted Gateway Elements", "Custom Checkout API", "Digital Wallet Integration", "Direct Merchant Processing", "Multi-Currency Routing", "Apple Pay & Google Pay", "European APMs (iDEAL & Bancontact)", "Global E-Commerce Platforms", "WooCommerce", "Custom Microservices"]
     },
     services: {
       tag: "TECHNICAL & STRATEGIC EXPERTISE",
@@ -45,16 +45,16 @@ export const translations = {
         {
           id: "setup-arch",
           icon: "Layers",
-          title: "Stripe & PayPal Setup & Architecture",
-          desc: "Optimal setup and hardening of your merchant accounts. Proper API key isolation, resilient webhook endpoints, sandbox testing, and zero-downtime go-live.",
-          features: ["Multi-currency settlement configuration", "Custom Stripe Elements checkout integration", "Stripe Connect marketplace transfer logic"]
+          title: "Payment Gateway Setup & Architecture",
+          desc: "Optimal setup and hardening of your merchant accounts and gateway APIs. Proper credential isolation, resilient webhook endpoints, sandbox testing, and zero-downtime go-live.",
+          features: ["Multi-currency settlement configuration", "Custom gateway elements & checkout flow", "Multi-vendor and marketplace transfer logic"]
         },
         {
           id: "3ds-radar",
           icon: "ShieldCheck",
-          title: "3DS2 Compliance & Radar Fraud Tuning",
+          title: "3DS2 Compliance & Gateway Fraud Tuning",
           desc: "Fine-tuning Strong Customer Authentication (SCA) to maximize frictionless transactions while applying surgical predictive fraud blocking rules.",
-          features: ["Velocity-based custom Radar rules", "3DS2 exemption optimization (TRA & Low-Value)", "Early chargeback alert feeds (Ethoca & Verifi)"]
+          features: ["Velocity-based custom fraud rules", "3DS2 exemption optimization (TRA & Low-Value)", "Early chargeback alert feeds (Ethoca & Verifi)"]
         },
         {
           id: "intl-apms",
@@ -74,7 +74,7 @@ export const translations = {
           id: "reconciliation",
           icon: "FileSpreadsheet",
           title: "Webhooks, Dunning & ERP Reconciliation",
-          desc: "Design and deployment of robust sync pipelines between payment gateways, subscription engines (Stripe Billing), and financial ERPs.",
+          desc: "Design and deployment of robust sync pipelines between payment gateways, recurring billing engines, and financial ERPs.",
           features: ["Fault-tolerant webhook queue architecture", "Automated smart dunning & retry engine", "Automated VAT & revenue recognition feeds"]
         },
         {
@@ -96,26 +96,26 @@ export const translations = {
       expertNoteContent: "Never deploy a fraud rule in immediate 'Block' mode without analyzing its impact for at least 14 days in 'Review' or 'Test' mode. This protects legitimate high-value buyers from unintended friction.",
       tabs: [
         {
-          id: "stripe-best-practices",
-          label: "1. Stripe & 3D Secure 2",
-          title: "Stripe Optimization Handbook: SCA, Radar & Webhooks",
-          intro: "Stripe is the industry gold standard, but uncalibrated 3D Secure 2 triggers and generic Radar rules can cause up to 25% false declines on legitimate customers.",
-          checklistTitle: "Production Checklist for Stripe:",
+          id: "gateway-best-practices",
+          label: "1. Gateway & 3D Secure 2",
+          title: "Gateway Optimization Handbook: SCA, Fraud Filters & Webhooks",
+          intro: "Modern payment gateways provide robust APIs, but uncalibrated 3D Secure 2 triggers and generic fraud filters can cause up to 25% false declines on legitimate customers.",
+          checklistTitle: "Production Checklist for Gateway Go-Live:",
           checkpoints: [
-            "Utilize the modern Payment Intents API rather than the legacy Charges API.",
+            "Utilize modern Payment Intent APIs rather than legacy synchronous charge endpoints.",
             "Implement Transaction Risk Analysis (TRA) exemption requests to maximize frictionless checkouts.",
-            "Apply velocity checks to detect bot attacks without blocking legitimate high-value corporate cards.",
-            "Enforce signature verification (stripe-signature) and idempotency keys on all webhook listeners.",
-            "Simulate decline edge-cases and 3DS challenge flows thoroughly in test mode before launching."
+            "Apply velocity checks to detect automated bot attacks without blocking legitimate high-value corporate cards.",
+            "Enforce strict cryptographic signature verification and idempotency keys on all webhook listeners.",
+            "Simulate decline edge-cases and 3DS challenge flows thoroughly in sandbox mode before launching."
           ],
           codeTitle: "Robust Node.js / Express Webhook Handler with Idempotency:",
-          codeSnippet: `// Production-ready Stripe Webhook with error resilience
-app.post('/webhook/stripe', express.raw({type: 'application/json'}), async (req, res) => {
-  const sig = req.headers['stripe-signature'];
+          codeSnippet: `// Production-ready Gateway Webhook with error resilience
+app.post('/webhook/gateway', express.raw({type: 'application/json'}), async (req, res) => {
+  const sig = req.headers['webhook-signature'];
   let event;
 
   try {
-    event = stripe.webhooks.constructEvent(req.body, sig, process.env.STRIPE_WEBHOOK_SECRET);
+    event = paymentGateway.webhooks.constructEvent(req.body, sig, process.env.GATEWAY_WEBHOOK_SECRET);
   } catch (err) {
     console.error(\`⚠️ Webhook Signature Error: \${err.message}\`);
     return res.status(400).send(\`Webhook Error: \${err.message}\`);
@@ -138,20 +138,20 @@ app.post('/webhook/stripe', express.raw({type: 'application/json'}), async (req,
 });`
         },
         {
-          id: "paypal-braintree",
-          label: "2. PayPal & Braintree",
-          title: "PayPal Commerce Platform & Braintree Configuration Guide",
-          intro: "PayPal commands up to 40% of checkout volumes across Europe and the Americas. Providing a native, frictionless experience is essential for conversion.",
-          checklistTitle: "Golden Rules for PayPal Commerce Security:",
+          id: "wallets-settlement",
+          label: "2. Digital Wallets & Settlements",
+          title: "Digital Wallets & Multi-Currency Settlement Guide",
+          intro: "Digital wallets represent a major share of checkout volumes across Europe and the Americas. Providing a native, frictionless experience is essential for conversion.",
+          checklistTitle: "Golden Rules for Digital Wallet & Settlement Security:",
           checkpoints: [
-            "Integrate Smart Payment Buttons to dynamically render PayPal, Pay in 4, and local wallets.",
-            "Ensure full Merchant Protection by systematically submitting delivery tracking IDs via the Trackers API.",
-            "Establish native settlement bank accounts in key currencies (USD, EUR, GBP) to eliminate costly internal FX conversion markups.",
-            "Subscribe to PayPal Dispute Resolution Webhooks for immediate notice of buyer claims.",
-            "Align your return and shipping policy with PayPal guidelines to avoid rolling reserves."
+            "Integrate smart 1-click payment buttons to dynamically render Apple Pay, Google Pay, and regional wallets.",
+            "Ensure full merchant protection compliance by systematically transmitting delivery tracking information via Fulfillment APIs.",
+            "Establish native settlement bank accounts in key operating currencies (USD, EUR, GBP) to eliminate costly internal FX conversion markups.",
+            "Subscribe to automated Dispute Resolution Webhooks for immediate notification of buyer claims.",
+            "Align your return and shipping policies with card scheme rules to prevent rolling reserve holds."
           ],
           codeTitle: "Recommended Order Payload for Merchant Protection:",
-          codeSnippet: `// PayPal Orders v2 with comprehensive shipping parameters
+          codeSnippet: `// Standard Order Payload with comprehensive fulfillment parameters
 {
   "intent": "CAPTURE",
   "purchase_units": [{
@@ -189,9 +189,9 @@ app.post('/webhook/stripe', express.raw({type: 'application/json'}), async (req,
             "Brazil & LatAm: Pix instant payments and Boleto Bancário dominate online commerce.",
             "Asia-Pacific: Alipay and WeChat Pay enable direct capture from affluent travelers and international buyers."
           ],
-          codeTitle: "Stripe Payment Element Dynamic Sorting Config:",
+          codeTitle: "Gateway Dynamic Sorting Configuration:",
           codeSnippet: `// Recommended multi-payment method ordering
-const elements = stripe.elements({
+const elements = paymentGateway.elements({
   clientSecret,
   appearance: { theme: 'night', labels: 'floating' },
   locale: 'en',
@@ -202,17 +202,17 @@ const elements = stripe.elements({
           id: "fraud-chargeback",
           label: "4. Fraud & Chargeback Prevention",
           title: "Risk Mitigation Guide: Card Brand Thresholds & Dispute Defense",
-          intro: "Exceeding a 0.9% chargeback ratio or 100 disputes/month can trigger Visa VAMP or Mastercard ECP fines and result in immediate placement on the MATCH / TMF blacklist.",
+          intro: "Exceeding a 0.9% chargeback ratio or 100 disputes/month can trigger card brand surveillance fines and result in immediate placement on merchant risk registries.",
           checklistTitle: "Action Plan Recommended by Corsovault:",
           checkpoints: [
-            "Integrate Verifi Rapid Dispute Resolution (RDR) to auto-refund dispute-bound charges prior to formal filing.",
-            "Deploy Ethoca alerts to catch confirmed issuing bank fraud within 24 hours.",
+            "Integrate Rapid Dispute Resolution (RDR) to auto-refund dispute-bound charges prior to formal filing.",
+            "Deploy early fraud warning alerts to catch confirmed issuing bank fraud within 24 hours.",
             "Enforce strict velocity rules (e.g., max 3 attempts per IP/card per hour).",
             "Require Address Verification Service (AVS) match on high-ticket USD/GBP transactions.",
             "Maintain centralized, timestamped proof of delivery (PoD) and IP audit trails."
           ],
-          codeTitle: "Recommended Custom Radar Rule Set:",
-          codeSnippet: `// Custom Radar rule balancing fraud mitigation and conversion
+          codeTitle: "Recommended Adaptive Gateway Fraud Rule Set:",
+          codeSnippet: `// Custom fraud rule balancing chargeback mitigation and conversion
 BLOCK IF :risk_score: > 75 
       AND NOT :is_3d_secure:
       AND NOT :is_corporate_card:
@@ -242,10 +242,10 @@ REVIEW IF :risk_score: > 60
           "$250,000 - $1,000,000 / month (High Volume)",
           "> $1,000,000 / month (Enterprise / Multi-entity)"
         ],
-        gatewayLabel: "Current payment gateway(s):",
-        gatewayOptions: ["Stripe", "PayPal / Braintree", "Adyen", "Shopify Payments", "Square / SumUp", "Other / None"],
+        gatewayLabel: "Current payment gateway / processor setup:",
+        gatewayOptions: ["Global Credit Card Gateway", "Digital Wallet & Merchant Gateway", "Enterprise Payment Processor", "Regional Local Gateways", "Alternative Payment Methods", "Custom / Other"],
         cmsLabel: "E-Commerce / Software Platform:",
-        cmsOptions: ["Shopify / Shopify Plus", "WooCommerce / WordPress", "PrestaShop", "Magento / Adobe Commerce", "Custom Application (Next.js, Node, Laravel, Python, etc.)", "Other"],
+        cmsOptions: ["Global E-Commerce Platform", "WooCommerce / WordPress", "PrestaShop", "Magento / Adobe Commerce", "Custom Application (Next.js, Node, Laravel, Python, etc.)", "Other"],
         marketsLabel: "Primary target markets:",
         marketsOptions: ["Domestic / US & Canada", "European Union (Multi-country)", "United Kingdom & Europe", "Global International (APAC, LatAm, MENA)"],
         frictionLabel: "Primary challenge or goal:",
@@ -255,7 +255,7 @@ REVIEW IF :risk_score: > 60
           "Fraud attacks, chargebacks, or threat of account suspension",
           "Enabling local APMs & multi-currency settlements (iDEAL, Klarna...)",
           "Complex webhook synchronizations and ERP ledger reconciliation",
-          "New Project: Clean, enterprise-grade setup from scratch"
+          "New Project: Clean, enterprise-grade gateway setup from scratch"
         ],
         nameLabel: "Full Name:",
         namePlaceholder: "e.g., Alexander Smith",
@@ -315,7 +315,7 @@ REVIEW IF :risk_score: > 60
           category: "DTC Global E-Commerce",
           client: "AuraSkin Cosmetics (Paris & New York)",
           challenge: "Suffering an 18.4% cross-border decline rate on US/UK sales and high cart drop-off in Northern Europe due to lack of local checkout options.",
-          solution: "Implemented Stripe Payment Element with intelligent multi-currency settlement routing (USD, EUR, GBP) and frictionless 1-click APMs (iDEAL, Klarna).",
+          solution: "Implemented Modern Payment Gateway Elements with intelligent multi-currency settlement routing (USD, EUR, GBP) and frictionless 1-click APMs (iDEAL, Klarna).",
           results: [
             { metric: "-31%", desc: "Drop in global cart abandonment" },
             { metric: "4.1%", desc: "Final decline rate (down from 18.4%)" },
@@ -326,7 +326,7 @@ REVIEW IF :risk_score: > 60
           id: "cs-2",
           category: "B2B SaaS & Recurring Subscriptions",
           client: "SaaSFlow Cloud (European Scale-up)",
-          challenge: "Substantial involuntary churn from failed SEPA debit collections and expired cards, coupled with asynchronous webhook drops on Stripe Billing.",
+          challenge: "Substantial involuntary churn from failed direct debit collections and expired cards, coupled with asynchronous webhook drops on billing engines.",
           solution: "Engineered an idempotent Redis-backed webhook queue, automated Card Account Updater hooks, and smart multi-stage dunning sequences.",
           results: [
             { metric: "-47%", desc: "Reduction in involuntary subscription churn" },
@@ -339,7 +339,7 @@ REVIEW IF :risk_score: > 60
           category: "Luxury Horology Marketplace",
           client: "LuxeHorlogerie Paris",
           challenge: "High average order value (> €3,500) triggered excessive 3DS false positives, alienating legitimate high-net-worth VIP clients.",
-          solution: "Customized Stripe Radar risk scoring with TRA exemption routing and integrated Ethoca early fraud alerts for immediate dispute resolution.",
+          solution: "Customized adaptive gateway risk scoring with TRA exemption routing and integrated early fraud warning alerts for immediate dispute resolution.",
           results: [
             { metric: "-64%", desc: "Dispute reduction without declining VIP buyers" },
             { metric: "+94%", desc: "Client satisfaction on checkout experience" },
@@ -353,14 +353,14 @@ REVIEW IF :risk_score: > 60
       title: "Trusted by Fast-Moving Founders & Tech Leaders",
       items: [
         {
-          quote: "Corsovault overhauled our Stripe setup in just 10 days. We were suffering unexplained cross-border declines on US traffic. Their multi-currency and 3DS architecture boosted our international revenue by 35%.",
+          quote: "Corsovault overhauled our payment gateway architecture in just 10 days. We were suffering unexplained cross-border declines on US traffic. Their multi-currency and 3DS architecture boosted our international revenue by 35%.",
           author: "Thomas Mercier",
           role: "Co-Founder & COO",
           company: "NordicLifestyle Store",
           avatar: "TM"
         },
         {
-          quote: "Their engineering depth on webhooks and PayPal Braintree is outstanding. They helped us avert critical edge-case failures that would have cost us tens of thousands in disputes.",
+          quote: "Their engineering depth on webhooks and gateway integrations is outstanding. They helped us avert critical edge-case failures that would have cost us tens of thousands in disputes.",
           author: "Éléonore de Roche",
           role: "Head of E-Commerce & Growth",
           company: "Atelier Joaillerie Paris",
@@ -386,11 +386,11 @@ REVIEW IF :risk_score: > 60
           badge: "Ideal for Startups & New Launches",
           price: "€1,450",
           period: "one-off fixed fee",
-          desc: "The complete package to configure a hardened Stripe or PayPal gateway from scratch according to industry best practices.",
+          desc: "The complete package to configure a hardened payment gateway from scratch according to industry best practices.",
           features: [
             "Initial business review & optimal gateway selection",
             "Complete merchant account configuration & API keys",
-            "Stripe Elements or PayPal Checkout integration",
+            "Secure gateway elements & custom checkout integration",
             "Baseline 3DS2 & European SCA compliance setup",
             "Comprehensive sandbox testing suite & assisted Go-Live",
             "Dedicated engineering support for 14 days post-launch"
@@ -407,7 +407,7 @@ REVIEW IF :risk_score: > 60
           features: [
             "Everything in the Sprint Setup package",
             "Activation of regional APMs (iDEAL, Klarna, Bancontact...)",
-            "Tailored Stripe Radar rules & chargeback defense setup",
+            "Tailored fraud prevention rules & chargeback defense setup",
             "Multi-currency routing to remove hidden FX markups",
             "Hardened webhook pipeline & smart dunning retry flow",
             "Checkout UX speed & friction audit",
@@ -421,12 +421,12 @@ REVIEW IF :risk_score: > 60
           badge: "Custom Architecture",
           price: "Custom Quote",
           period: "tailored scope",
-          desc: "For complex marketplaces (Stripe Connect), high volume merchants (> $500k/mo), and multi-processor resilience.",
+          desc: "For complex marketplace platforms, high volume merchants (> $500k/mo), and multi-processor resilience.",
           features: [
             "Multi-processor cascading with automated failover",
-            "Custom / Express Stripe Connect marketplace logic",
+            "Custom marketplace multi-party transfer logic",
             "Custom ERP, NetSuite, SAP or Sage reconciliation feeds",
-            "Proactive integration of Ethoca & Verifi pre-dispute alerts",
+            "Proactive integration of early pre-dispute alerts",
             "PCI-compliant token migration assistance",
             "Emergency technical SLA and standby coverage"
           ],
@@ -440,20 +440,20 @@ REVIEW IF :risk_score: > 60
       title: "Everything You Need to Know About Our Services",
       items: [
         {
-          q: "Is Corsovault officially affiliated with Stripe or PayPal?",
-          a: "No. Corsovault is a 100% independent technical and strategic consulting firm. This total independence ensures that our recommendations are completely unbiased and focused exclusively on what is best for your margins and technical architecture."
+          q: "Is Corsovault officially affiliated with any specific payment processor or acquiring bank?",
+          a: "No. Corsovault is a 100% independent technical and strategic consulting firm. This total independence ensures that our recommendations are completely unbiased and focused exclusively on what is best for your margins, technical architecture, and customer conversion rates."
         },
         {
-          q: "Why hire a consultant rather than using default e-commerce plugins?",
-          a: "Out-of-the-box plugins frequently use generic fallback configurations: mismanaged 3DS challenges, absent local payment methods, untuned fraud filters that create false declines, and fragile webhook listeners. Our work raises approval rates by an average of 15% to 28% while protecting accounts against unexpected suspensions."
+          q: "Why hire a consultant rather than using default checkout plugins?",
+          a: "Out-of-the-box generic plugins frequently use fallback configurations: mismanaged 3DS challenges, absent local payment methods, untuned fraud filters that create false declines, and fragile webhook listeners. Our work raises approval rates by an average of 15% to 28% while protecting merchant accounts against unexpected suspensions."
         },
         {
           q: "How long does an integration or optimization engagement take?",
-          a: "A standard Sprint Setup is typically completed within 3 to 7 business days. Growth Optimization projects usually take 1 to 2 weeks depending on your stack. For enterprise architectures (Stripe Connect, ERP integrations), a clear roadmap is agreed upon during quoting."
+          a: "A standard Sprint Setup is typically completed within 3 to 7 business days. Growth Optimization projects usually take 1 to 2 weeks depending on your stack. For enterprise architectures (marketplace split payments, ERP integrations), a clear roadmap is agreed upon during quoting."
         },
         {
           q: "How do you guarantee the security of our API credentials and financial data?",
-          a: "We NEVER request access to customer credit card numbers. All our procedures strictly adhere to PCI-DSS Level 1 compliance guidelines. For Stripe and PayPal, you grant us restricted 'Developer' access via official team delegation features, with zero access to bank transfers or payouts."
+          a: "We NEVER request access to customer credit card numbers. All our procedures strictly adhere to PCI-DSS Level 1 compliance guidelines. For gateway platforms, you grant us restricted 'Developer' access via official team delegation features, with zero access to bank transfers or payouts."
         },
         {
           q: "How does the free payment audit process work?",
@@ -471,7 +471,7 @@ REVIEW IF :risk_score: > 60
       phone: "+33 1 89 71 42 30",
       email: "contact@corsovault.com",
       companyReg: "SAS with capital of €25,000 • Paris Trade Register B 921 843 710 • SIRET: 921 843 710 00024 • VAT: FR 48 921843710",
-      disclaimer: "Non-Affiliation Notice: Corsovault Advisory SAS is an independent advisory firm. Stripe, PayPal, Braintree, Adyen, Apple Pay, Google Pay, Klarna, and iDEAL are registered trademarks of their respective owners. Use of these names does not imply any affiliation, sponsorship, or endorsement.",
+      disclaimer: "Non-Affiliation Notice: Corsovault Advisory SAS is an independent advisory firm. All referenced third-party gateway brand names and trademarks belong exclusively to their respective owners. Mention of any technology or service is purely descriptive of technical compatibility and does not imply any official affiliation, sponsorship, or endorsement.",
       copyright: "© 2026 Corsovault Advisory SAS. All rights reserved.",
       gdprCompliant: "GDPR Compliant (EU 2016/679)",
       scaCompliant: "3DS2 / SCA Compliance Audit",
@@ -501,7 +501,7 @@ REVIEW IF :risk_score: > 60
   fr: {
     meta: {
       title: "Corsovault | Global Payment Gateway Consulting & Setup Support",
-      description: "Conseil indépendant et intégration technique de passerelles de paiement internationales (Stripe, PayPal, Adyen). Audit gratuit et conformité mondiale."
+      description: "Conseil indépendant et intégration technique de passerelles de paiement internationales. Audit gratuit et conformité mondiale."
     },
     topbar: {
       badge: "Cabinet Indépendant de Conseil FinTech & Passerelles de Paiement",
@@ -521,7 +521,7 @@ REVIEW IF :risk_score: > 60
     hero: {
       tag: "CONSEIL & INTÉGRATION DE PASSERELLES DE PAIEMENT",
       title: "Global Payment Gateway Consulting & Setup Support",
-      subtitle: "Nous accompagnons les startups et e-commerçants dans la configuration, l'optimisation et la sécurisation de leurs passerelles de paiement internationales (Stripe, PayPal, Adyen).",
+      subtitle: "Nous accompagnons les startups et e-commerçants dans la configuration, l'optimisation et la sécurisation de leurs passerelles de paiement internationales et flux de checkout.",
       ctaPrimary: "Lancer mon Audit Paiement Gratuit",
       ctaSecondary: "Explorer le Guide des Bonnes Pratiques",
       stats: [
@@ -530,11 +530,11 @@ REVIEW IF :risk_score: > 60
         { value: "135+", label: "Devises & méthodes locales gérées" },
         { value: "99.99%", label: "Fiabilité des webhooks et flux" }
       ],
-      trustNotice: "Indépendant de Stripe, PayPal & Adyen • Conformité 100% RGPD & PCI-DSS Niveau 1"
+      trustNotice: "Cabinet Conseil Indépendant • Conformité 100% RGPD & PCI-DSS Niveau 1"
     },
     badges: {
-      supported: "Technologies & Passerelles maîtrisées",
-      gateways: ["Stripe Connect & Elements", "PayPal Commerce Platform", "Braintree", "Adyen", "Klarna & Afterpay", "Apple Pay & Google Pay", "iDEAL & Bancontact", "Shopify Payments", "WooCommerce", "Custom API"]
+      supported: "Technologies & Architectures de Passerelles Maîtrisées",
+      gateways: ["Composants de Paiement Sécurisés", "API de Checkout Personnalisée", "Intégration Portefeuilles Numériques", "Traitement Marchand Direct", "Routage Multi-Devises", "Apple Pay & Google Pay", "APMs Européens (iDEAL & Bancontact)", "Plateformes E-Commerce Globales", "WooCommerce", "Microservices Custom"]
     },
     services: {
       tag: "EXPERTISES TECHNIQUES & MÉTIER",
@@ -544,16 +544,16 @@ REVIEW IF :risk_score: > 60
         {
           id: "setup-arch",
           icon: "Layers",
-          title: "Configuration & Architecture Stripe / PayPal",
-          desc: "Création et paramétrage optimal de vos comptes marchands. Structuration des clés API, webhooks redondants, environnements sandbox et passage en production sans friction.",
-          features: ["Paramétrage multi-devises & comptes bancaires", "Configuration Stripe Elements / Custom Checkout", "Gestion des flux de transfert Stripe Connect"]
+          title: "Configuration & Architecture de Passerelle de Paiement",
+          desc: "Création et paramétrage optimal de vos comptes marchands et clés API. Structuration des webhooks redondants, environnements sandbox et passage en production sans friction.",
+          features: ["Paramétrage multi-devises & comptes bancaires", "Configuration d'éléments de checkout sur-mesure", "Gestion des flux de transferts et places de marché"]
         },
         {
           id: "3ds-radar",
           icon: "ShieldCheck",
-          title: "Conformité 3DS2 & Règles Anti-Fraude Radar",
+          title: "Conformité 3DS2 & Règles Anti-Fraude Adaptatives",
           desc: "Optimisation de l'authentification forte (SCA) pour maximiser les exemptions sans risque et configuration chirurgicale des règles de blocage prédictif.",
-          features: ["Règles Radar personnalisées par vélocité", "Exemptions 3DS2 (Low Value, Transaction Risk Analysis)", "Intégration des alertes pré-litiges (Ethoca/Verifi)"]
+          features: ["Règles anti-fraude personnalisées par vélocité", "Exemptions 3DS2 (Low Value, Transaction Risk Analysis)", "Intégration des alertes pré-litiges (Ethoca/Verifi)"]
         },
         {
           id: "intl-apms",
@@ -573,7 +573,7 @@ REVIEW IF :risk_score: > 60
           id: "reconciliation",
           icon: "FileSpreadsheet",
           title: "Webhooks, Réconciliation & Intégration ERP",
-          desc: "Développement et fiabilisation de pipelines de synchronisation entre votre passerelle de paiement, vos bases de données, Stripe Billing et vos logiciels de comptabilité.",
+          desc: "Développement et fiabilisation de pipelines de synchronisation entre votre passerelle de paiement, vos moteurs de facturation récurrente et vos logiciels de comptabilité.",
           features: ["Architecture de webhooks avec reprise sur erreur", "Gestion automatisée du dunning et des relances", "Export comptable et TVA automatisée"]
         },
         {
@@ -595,26 +595,26 @@ REVIEW IF :risk_score: > 60
       expertNoteContent: "Ne déployez jamais une règle anti-fraude en mode 'Block' immédiat sans avoir analysé son impact pendant au moins 14 jours en mode 'Review' ou 'Test'. Cela protège vos acheteurs VIP d'un blocage intempestif.",
       tabs: [
         {
-          id: "stripe-best-practices",
-          label: "1. Stripe & 3D Secure 2",
-          title: "Guide d'Optimisation Stripe : SCA, Radar & Webhooks",
-          intro: "Stripe est le standard de l'industrie, mais une mauvaise configuration de 3D Secure 2 ou des règles Radar trop strictes peut détruire jusqu'à 25% de vos ventes légitimes.",
-          checklistTitle: "Checklist de Mise en Production Stripe :",
+          id: "gateway-best-practices",
+          label: "1. Passerelle & 3D Secure 2",
+          title: "Guide d'Optimisation de Passerelle : SCA, Filtres Anti-Fraude & Webhooks",
+          intro: "Les passerelles modernes offrent des API puissantes, mais une mauvaise configuration de 3D Secure 2 ou des règles de filtrage trop strictes peut détruire jusqu'à 25% de vos ventes légitimes.",
+          checklistTitle: "Checklist de Mise en Production :",
           checkpoints: [
-            "Activer l'API Payment Intents au lieu de l'ancienne API Charges (obligatoire pour SCA/3DS2).",
+            "Activer les API Payment Intents asynchrones au lieu des anciens endpoints de débit direct.",
             "Mettre en place une logique de 'Frictionless Flow' avec demande d'exemption TRA (Transaction Risk Analysis).",
             "Configurer des règles de détection d'adresses IP anonymes (VPN/Tor) sans bloquer systématiquement les cartes corporate.",
-            "Déployer un endpoint webhook avec vérification stricte de signature cryptographique (stripe-signature) et idempotence.",
+            "Déployer un endpoint webhook avec vérification stricte de signature cryptographique et idempotence.",
             "Tester les codes d'erreur 3DS et les cartes de test officielles en environnement sandbox avant ouverture des ventes."
           ],
-          codeTitle: "Exemple de vérification robuste de webhook Stripe (Node.js/Express) :",
+          codeTitle: "Exemple de vérification robuste de webhook (Node.js/Express) :",
           codeSnippet: `// Vérification sécurisée du webhook avec gestion d'idempotence
-app.post('/webhook/stripe', express.raw({type: 'application/json'}), async (req, res) => {
-  const sig = req.headers['stripe-signature'];
+app.post('/webhook/gateway', express.raw({type: 'application/json'}), async (req, res) => {
+  const sig = req.headers['webhook-signature'];
   let event;
 
   try {
-    event = stripe.webhooks.constructEvent(req.body, sig, process.env.STRIPE_WEBHOOK_SECRET);
+    event = paymentGateway.webhooks.constructEvent(req.body, sig, process.env.GATEWAY_WEBHOOK_SECRET);
   } catch (err) {
     console.error(\`⚠️ Erreur de signature Webhook: \${err.message}\`);
     return res.status(400).send(\`Webhook Error: \${err.message}\`);
@@ -640,20 +640,20 @@ app.post('/webhook/stripe', express.raw({type: 'application/json'}), async (req,
 });`
         },
         {
-          id: "paypal-braintree",
-          label: "2. PayPal & Braintree",
-          title: "Guide de Configuration PayPal Commerce Platform & Braintree",
-          intro: "PayPal représente entre 20% et 40% des volumes de vente en ligne en Europe et aux États-Unis. Une intégration fluide élimine la friction pour les acheteurs sans carte bancaire.",
-          checklistTitle: "Règles d'or pour sécuriser PayPal Commerce :",
+          id: "wallets-settlement",
+          label: "2. Portefeuilles & Règlements",
+          title: "Guide de Configuration des Portefeuilles & Devises de Règlement",
+          intro: "Les portefeuilles numériques représentent une part prépondérante des volumes de vente en ligne en Europe et aux États-Unis. Une intégration fluide élimine la friction pour les acheteurs sans carte bancaire.",
+          checklistTitle: "Règles d'or pour sécuriser vos règlements :",
           checkpoints: [
-            "Intégrer les 'Smart Payment Buttons' pour afficher dynamiquement PayPal, Pay in 4X et les portefeuilles locaux.",
-            "Activer la protection des marchands PayPal en transmettant systématiquement les numéros de suivi de livraison (Trackers API).",
-            "Paramétrer des comptes de règlement en devises multiples (USD, EUR, GBP) pour éviter les taux de change majorés de PayPal.",
-            "Configurer la synchronisation automatique des litiges via PayPal Resolution Center Webhooks.",
+            "Intégrer les boutons intelligents 1-clic pour afficher dynamiquement Apple Pay, Google Pay et portefeuilles locaux.",
+            "Activer la protection des marchands en transmettant systématiquement les numéros de suivi de livraison via les API de Fulfillment.",
+            "Paramétrer des comptes de règlement en devises multiples (USD, EUR, GBP) pour éviter les taux de change majorés.",
+            "Configurer la synchronisation automatique des litiges via les Webhooks de résolution des contestations.",
             "Mettre en conformité vos conditions de retour et politique de livraison pour accélérer la levée des réserves financières."
           ],
           codeTitle: "Structure recommandée des données de commande pour la protection marchand :",
-          codeSnippet: `// Payload PayPal Orders v2 avec données complètes de livraison
+          codeSnippet: `// Payload standard de commande avec données complètes de livraison
 {
   "intent": "CAPTURE",
   "purchase_units": [{
@@ -692,8 +692,8 @@ app.post('/webhook/stripe', express.raw({type: 'application/json'}), async (req,
             "Asie : Alipay et WeChat Pay pour capter la clientèle internationale et touristique."
           ],
           codeTitle: "Stratégie d'affichage dynamique des paiements selon la géolocalisation :",
-          codeSnippet: `// Configuration recommandée Stripe Payment Element (auto-tri par pays)
-const elements = stripe.elements({
+          codeSnippet: `// Configuration recommandée pour l'affichage dynamique par pays
+const elements = paymentGateway.elements({
   clientSecret,
   appearance: { theme: 'night', labels: 'floating' },
   locale: 'fr',
@@ -704,17 +704,17 @@ const elements = stripe.elements({
           id: "fraud-chargeback",
           label: "4. Prévention Fraude & Litiges",
           title: "Guide de Gestion du Risque : Seuils Visa/Mastercard & Chargebacks",
-          intro: "Dépasser un taux de litige de 0.9% ou 100 contestations par mois peut entraîner l'inscription sur le fichier MATCH / Terminated Merchant File et la fermeture immédiate de vos comptes marchands.",
+          intro: "Dépasser un taux de litige de 0.9% ou 100 contestations par mois peut entraîner des pénalités lourdes et la fermeture immédiate de vos comptes marchands.",
           checklistTitle: "Plan d'action préventif recommandé par Corsovault :",
           checkpoints: [
-            "Utiliser les alertes RDR (Rapid Dispute Resolution) de Verifi pour rembourser automatiquement avant émission du chargeback officiel.",
-            "Connecter Ethoca Alerts pour intercepter la fraude confirmée par les banques émettrices dans les 24h.",
+            "Utiliser les alertes RDR (Rapid Dispute Resolution) pour rembourser automatiquement avant émission du chargeback officiel.",
+            "Connecter les alertes précoces pour intercepter la fraude confirmée par les banques émettrices dans les 24h.",
             "Mettre en place un contrôle de vélocité (max 3 tentatives de paiement par IP / par carte par heure).",
             "Exiger la correspondance obligatoire de l'adresse de facturation (AVS) pour les commandes à fort panier en USD/GBP.",
             "Conserver et archiver automatiquement les preuves de livraison avec signature (PoD) et adresses IP de commande."
           ],
-          codeTitle: "Règle Radar personnalisée recommandée (Seuil de risque modéré) :",
-          codeSnippet: `// Exemple de règle Stripe Radar personnalisée pour transactions à risque
+          codeTitle: "Règle anti-fraude adaptative recommandée :",
+          codeSnippet: `// Exemple de règle personnalisée pour transactions à risque
 BLOCK IF :risk_score: > 75 
       AND NOT :is_3d_secure:
       AND NOT :is_corporate_card:
@@ -744,10 +744,10 @@ REVIEW IF :risk_score: > 60
           "250 000 € - 1 000 000 € / mois (Grand Compte)",
           "> 1 000 000 € / mois (Enterprise / Multi-entités)"
         ],
-        gatewayLabel: "Passerelle(s) de paiement actuelle(s) :",
-        gatewayOptions: ["Stripe", "PayPal / Braintree", "Adyen", "Shopify Payments", "Square / SumUp", "Autre / Aucune"],
+        gatewayLabel: "Type de passerelle / processeur actuel :",
+        gatewayOptions: ["Passerelle Carte Bancaire Globale", "Portefeuilles & Passerelle Marchande", "Processeur de Paiement Entreprise", "Passerelles Régionales / Locales", "Moyens de Paiement Alternatifs", "Custom / Autre"],
         cmsLabel: "Plateforme / CMS utilisé :",
-        cmsOptions: ["Shopify / Shopify Plus", "WooCommerce / WordPress", "PrestaShop", "Magento / Adobe Commerce", "Application Custom (Next.js, Node, Laravel, Python, etc.)", "Autre"],
+        cmsOptions: ["Plateforme E-Commerce Globale", "WooCommerce / WordPress", "PrestaShop", "Magento / Adobe Commerce", "Application Custom (Next.js, Node, Laravel, Python, etc.)", "Autre"],
         marketsLabel: "Principaux marchés cibles :",
         marketsOptions: ["France & Europe francophone", "Union Européenne (Multi-pays)", "Royaume-Uni & États-Unis", "International Global (APAC, LatAm, MENA)"],
         frictionLabel: "Votre principal défi actuel :",
@@ -757,7 +757,7 @@ REVIEW IF :risk_score: > 60
           "Gestion des fraudes, litiges et blocages de compte",
           "Activation de devises et méthodes locales (iDEAL, Klarna...)",
           "Réconciliation comptable et synchronisation webhooks complexe",
-          "Nouveau projet : Besoin d'une configuration optimale de A à Z"
+          "Nouveau projet : Besoin d'une configuration optimale de passerelle de A à Z"
         ],
         nameLabel: "Nom complet :",
         namePlaceholder: "ex: Alexandre Martin",
@@ -817,7 +817,7 @@ REVIEW IF :risk_score: > 60
           category: "E-Commerce DTC International",
           client: "AuraSkin Cosmetics (Paris & New York)",
           challenge: "Taux de déclin bancaire de 18.4% sur les commandes transfrontalières (US/UK) et abandon de panier élevé en Europe du Nord par manque de méthodes de paiement locales.",
-          solution: "Déploiement de Stripe Payment Element avec routage dynamique des devises de règlement (USD, EUR, GBP) et activation en un clic d'iDEAL et Klarna sans double conversion de change.",
+          solution: "Déploiement d'éléments de passerelle modernes avec routage dynamique des devises de règlement (USD, EUR, GBP) et activation en un clic d'iDEAL et Klarna sans double conversion de change.",
           results: [
             { metric: "-31%", desc: "D'abandon de panier global" },
             { metric: "4.1%", desc: "Taux de déclin final (au lieu de 18.4%)" },
@@ -828,7 +828,7 @@ REVIEW IF :risk_score: > 60
           id: "cs-2",
           category: "SaaS B2B & Abonnements",
           client: "SaaSFlow Cloud (Scale-up Européenne)",
-          challenge: "Churn involontaire massif dû à des échecs de prélèvements bancaires SEPA et cartes expirées, combiné à des désynchronisations de webhooks sur Stripe Billing.",
+          challenge: "Churn involontaire massif dû à des échecs de prélèvements bancaires SEPA et cartes expirées, combiné à des désynchronisations de webhooks sur les moteurs de facturation.",
           solution: "Refonte complète du pipeline de webhooks avec idempotence et queue Redis, mise en place de la mise à jour automatique des cartes (Card Account Updater) et séquence de dunning intelligente.",
           results: [
             { metric: "-47%", desc: "De churn involontaire sur abonnements" },
@@ -841,7 +841,7 @@ REVIEW IF :risk_score: > 60
           category: "Marketplace Luxe & Horlogerie",
           client: "LuxeHorlogerie Paris",
           challenge: "Panier moyen élevé (> 3 500 €) générant des faux positifs 3DS2 et des alertes de fraude excessives, bloquant des acheteurs VIP légitimes.",
-          solution: "Calibrage sur-mesure des règles Stripe Radar, intégration d'une authentification 3DS2 adaptative avec exemptions TRA et connexion aux flux d'alerte pré-litige Ethoca.",
+          solution: "Calibrage sur-mesure des règles anti-fraude adaptatives, intégration d'une authentification 3DS2 avec exemptions TRA et connexion aux flux d'alerte pré-litige.",
           results: [
             { metric: "-64%", desc: "De réduction des chargebacks sans rejet VIP" },
             { metric: "+94%", desc: "Taux de satisfaction des clients grand compte" },
@@ -855,14 +855,14 @@ REVIEW IF :risk_score: > 60
       title: "Ce que disent les fondateurs et directeurs e-commerce",
       items: [
         {
-          quote: "Corsovault a transformé notre configuration Stripe en 10 jours. Nous avions des refus inexpliqués sur le marché américain. Grâce à leur paramétrage 3DS et multi-devises, nos ventes internationales ont bondi de 35%.",
+          quote: "Corsovault a transformé notre infrastructure de passerelle de paiement en 10 jours. Nous avions des refus inexpliqués sur le marché américain. Grâce à leur paramétrage 3DS et multi-devises, nos ventes internationales ont bondi de 35%.",
           author: "Thomas Mercier",
           role: "Co-fondateur & COO",
           company: "NordicLifestyle Store",
           avatar: "TM"
         },
         {
-          quote: "L'expertise technique sur les webhooks et l'intégration PayPal Braintree est bluffante. Ils nous ont évité des erreurs critiques qui nous auraient coûté des dizaines de milliers d'euros en litiges.",
+          quote: "L'expertise technique sur les webhooks et l'intégration de passerelle est bluffante. Ils nous ont évité des erreurs critiques qui nous auraient coûté des dizaines de milliers d'euros en litiges.",
           author: "Éléonore de Roche",
           role: "Head of E-commerce & Growth",
           company: "Atelier Joaillerie Paris",
@@ -888,11 +888,11 @@ REVIEW IF :risk_score: > 60
           badge: "Idéal Lancement / Startups",
           price: "1 450 €",
           period: "forfait unique",
-          desc: "La solution parfaite pour configurer une passerelle Stripe ou PayPal de zéro selon les normes d'excellence.",
+          desc: "La solution parfaite pour configurer une passerelle de paiement internationale de zéro selon les normes d'excellence.",
           features: [
             "Audit initial de l'activité & choix de la passerelle adaptée",
             "Configuration complète du compte marchand & clés API",
-            "Mise en place de Stripe Elements ou PayPal Checkout",
+            "Mise en place d'éléments de checkout sécurisés",
             "Paramétrage de base 3DS2 & conformité SCA européenne",
             "Tests fonctionnels complets en Sandbox & Go-Live assisté",
             "Support technique dédié pendant 14 jours après lancement"
@@ -909,7 +909,7 @@ REVIEW IF :risk_score: > 60
           features: [
             "Tout le contenu du forfait Sprint Setup",
             "Activation des moyens de paiement locaux (iDEAL, Klarna, etc.)",
-            "Règles Stripe Radar sur-mesure & protection anti-fraude",
+            "Règles anti-fraude sur-mesure & protection contre les litiges",
             "Routage multi-devises pour éliminer les frais de change cachés",
             "Fiabilisation du pipeline de webhooks et gestion du dunning",
             "Audit de vitesse et d'ergonomie UX du checkout",
@@ -923,12 +923,12 @@ REVIEW IF :risk_score: > 60
           badge: "Sur-Mesure",
           price: "Sur Devis",
           period: "selon cahier des charges",
-          desc: "Pour les marketplaces complexes (Stripe Connect), volumes > 500k€/mois et architectures résilientes multi-processeurs.",
+          desc: "Pour les marketplaces complexes, volumes > 500k€/mois et architectures résilientes multi-processeurs.",
           features: [
             "Architecture multi-passerelles avec fallback de secours",
-            "Intégration Stripe Connect Custom / Express (Marketplace)",
+            "Intégration de flux places de marché multi-vendeurs",
             "Interfaçage sur-mesure ERP, SAP, NetSuite ou Sage",
-            "Gestion proactive des alertes pré-litiges Ethoca / Verifi",
+            "Gestion proactive des alertes précoces pré-litiges",
             "Assistance à la migration sécurisée de tokens de carte (PCI)",
             "Accord de niveau de service (SLA) d'astreinte technique"
           ],
@@ -942,7 +942,7 @@ REVIEW IF :risk_score: > 60
       title: "Tout ce que vous devez savoir sur nos services",
       items: [
         {
-          q: "Corsovault est-il affilié officiellement à Stripe ou PayPal ?",
+          q: "Corsovault est-il affilié officiellement à une passerelle de paiement spécifique ou une banque ?",
           a: "Non. Corsovault est une société de conseil technique et stratégique 100% indépendante. Cette indépendance totale nous permet de vous conseiller en toute objectivité sur la passerelle la plus avantageuse pour vos marges, sans biais commercial."
         },
         {
@@ -951,11 +951,11 @@ REVIEW IF :risk_score: > 60
         },
         {
           q: "Combien de temps dure une mission d'intégration ou d'optimisation ?",
-          a: "Un Sprint Setup standard est livré en 3 à 7 jours ouvrés. Les missions de Growth Optimization prennent généralement entre 1 et 2 semaines selon la complexité de votre stack technique. Pour les architectures d'envergure (Stripe Connect, ERP), un planning précis est défini lors du devis."
+          a: "Un Sprint Setup standard est livré en 3 à 7 jours ouvrés. Les missions de Growth Optimization prennent généralement entre 1 et 2 semaines selon la complexité de votre stack technique. Pour les architectures d'envergure (places de marché, ERP), un planning précis est défini lors du devis."
         },
         {
           q: "Comment garantissez-vous la sécurité de nos clés d'API et données bancaires ?",
-          a: "Nous ne demandons JAMAIS l'accès direct aux numéros de carte de vos clients. Toutes nos interventions respectent scrupuleusement la norme PCI-DSS. Pour vos comptes Stripe ou PayPal, vous nous accordez un accès restreint 'Développeur' via les outils officiels de gestion d'équipe sans accès aux retraits de fonds."
+          a: "Nous ne demandons JAMAIS l'accès direct aux numéros de carte de vos clients. Toutes nos interventions respectent scrupuleusement la norme PCI-DSS. Pour vos comptes de passerelles, vous nous accordez un accès restreint 'Développeur' via les outils officiels de gestion d'équipe sans accès aux retraits de fonds."
         },
         {
           q: "Comment se déroule l'audit gratuit ?",
@@ -973,7 +973,7 @@ REVIEW IF :risk_score: > 60
       phone: "+33 1 89 71 42 30",
       email: "contact@corsovault.com",
       companyReg: "SAS au capital de 25 000 € • RCS Paris B 921 843 710 • SIRET : 921 843 710 00024 • TVA Intracommunautaire : FR 48 921843710",
-      disclaimer: "Avis de non-affiliation : Corsovault Advisory SAS est une société de conseil indépendante. Stripe, PayPal, Braintree, Adyen, Apple Pay, Google Pay, Klarna, et iDEAL sont des marques déposées de leurs propriétaires respectifs. L'utilisation de ces noms n'implique aucune affiliation, parrainage ni approbation directe de leur part.",
+      disclaimer: "Avis de non-affiliation : Corsovault Advisory SAS est une société de conseil indépendante. Toutes les marques et dénominations de passerelles citées appartiennent exclusivement à leurs détenteurs respectifs. Leur mention a un caractère purement descriptif et n'implique aucune affiliation officielle, parrainage ni approbation directe.",
       copyright: "© 2026 Corsovault Advisory SAS. Tous droits réservés.",
       gdprCompliant: "Conforme RGPD 2016/679",
       scaCompliant: "Audit de conformité 3DS2 / SCA",
@@ -1033,7 +1033,7 @@ export const legalDocs = {
           
 **IMPORTANT NON-AFFILIATION DISCLAIMER**: Corsovault Advisory SAS is an independent consulting agency and is NOT a bank, credit institution, or licensed money services business. Corsovault does not hold, custody, transmit, or handle customer transaction funds at any time.
           
-All third-party trademarks and brand names cited (including Stripe®, PayPal®, Braintree®, Adyen®, Apple Pay®, Google Pay®, Klarna®, iDEAL®) are the exclusive property of their respective owners. Mention of these names is purely descriptive of technical compatibility and does not imply any sponsorship, official partnership, or commercial endorsement.`
+All third-party trademarks and brand names cited are the exclusive property of their respective owners. Mention of any technology or service is purely descriptive of technical compatibility and does not imply any sponsorship, official partnership, or commercial endorsement.`
         },
         {
           heading: "4. Intellectual Property",
@@ -1171,7 +1171,7 @@ Designated Data Protection Officer (DPO): **dpo@corsovault.com**.`
           
 **AVERTISSEMENT STRICT D'INDÉPENDANCE** : Corsovault Advisory SAS est un cabinet indépendant et n'est ni un établissement bancaire, ni un établissement de paiement au sens du Code monétaire et financier. Corsovault ne conserve, ne transite et ne manipule à aucun moment les fonds des clients finaux.
           
-Les marques citées (notamment Stripe®, PayPal®, Braintree®, Adyen®, Apple Pay®, Google Pay®, Klarna®, iDEAL®) appartiennent exclusivement à leurs propriétaires légitimes. Leur citation a une vocation descriptive des compétences techniques proposées et n'indique aucun lien capitalistique, d'affiliation officielle ou de mandat d'agence.`
+Les marques citées appartiennent exclusivement à leurs détenteurs légitimes. Leur mention a une vocation purement descriptive des compétences techniques et n'indique aucun lien capitalistique, d'affiliation officielle ou de mandat d'agence.`
         },
         {
           heading: "4. Propriété Intellectuelle",
@@ -1198,7 +1198,7 @@ Délégué à la Protection des Données (DPO) : dpo@corsovault.com.`
         },
         {
           heading: "3. Absence de Données Bancaires Directes",
-          content: `Corsovault Advisory SAS ne collecte, ne stocke et ne traite JAMAIS les numéros complets de cartes bancaires (PAN), dates d'expiration ou cryptogrammes visuels (CVC) des clients de ses utilisateurs. Les audits de sécurité portent sur les flux d'API et la configuration des passerelles partenaires certifiées PCI-DSS Niveau 1.`
+          content: `Corsovault Advisory SAS ne collecte, ne stocke et ne traite JAMAIS les numéros complets de cartes bancaires (PAN), dates d'expiration ou cryptogrammes visuels (CVC) des clients de ses utilisateurs. Les audits de sécurité portent sur les flux d'API et la configuration des passerelles certifiées PCI-DSS Niveau 1.`
         },
         {
           heading: "4. Durée de Conservation des Données",
