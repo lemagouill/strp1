@@ -196,6 +196,11 @@
 
       var telegramUrl = 'https://t.me/hanscapo';
 
+      // Meta Pixel Contact Event
+      if (typeof window.fbq === 'function') {
+        window.fbq('track', 'Contact');
+      }
+
       status.innerHTML = '⚡ <strong>Request ready!</strong> Opening Telegram... If Telegram did not open, <a href="https://t.me/hanscapo" target="_blank" rel="noopener" style="color: #34d399; text-decoration: underline; font-weight: 750;">Click here to message @hanscapo on Telegram</a>.';
       status.classList.remove('is-err');
       status.classList.add('is-ok');
@@ -387,6 +392,12 @@
     if (img) {
       e.preventDefault();
       openLightbox(img.getAttribute('src'), img.getAttribute('alt'));
+    }
+
+    // Meta Pixel Contact Event on any Telegram link/button click
+    var tgLink = e.target.closest('a[href*="t.me"], .floating-telegram');
+    if (tgLink && typeof window.fbq === 'function') {
+      window.fbq('track', 'Contact');
     }
   });
 })();
