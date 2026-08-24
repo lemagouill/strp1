@@ -1,14 +1,11 @@
-# Walkthrough — Meta Pixel & Contact Event Tracking Deployed
+# Walkthrough — Repositories & Internal Navigation Status
 
-## 1. Meta (Facebook) Pixel Installed:
-- **Pixel ID**: `1093150999936694`
-- **Global Deployment**: Added the complete Meta Pixel snippet (script + noscript fallback) across all HTML pages (`index.html`, `browse.html`, `accounts.html`, `sell.html`, `how-it-works.html`, `faq.html`, `contact.html`, `legal.html`, `terms.html`).
-- **Standard `PageView` Event**: Automatically tracked upon every page visit.
+## 1. Explanation of the URL:
+- Internal links on the site use relative URLs (`href="browse"`).
+- When browsing on `corsovault.com`, clicking "Buy Account" goes to `corsovault.com/browse` (stays on CorsoVault).
+- If browsing on the Railway test URL `434-production.up.railway.app`, it stays on that test domain (`434-production.up.railway.app/browse`).
 
-## 2. Standard `Contact` Event Tracking:
-- **On Contact Page Load (`contact.html`)**: Triggers `fbq('track', 'Contact')` automatically.
-- **On Form Submission (`contact.html`, `sell.html`)**: Triggers `fbq('track', 'Contact')` when any user submits an account request / inquiry / valuation before opening Telegram.
-- **On Any Telegram Interaction**: Added a global click listener in `assets/js/main.js` that fires `fbq('track', 'Contact')` whenever a visitor clicks any Telegram CTA button, direct link (`t.me`), or the floating Telegram support badge.
-
-## 3. GitHub Push:
-- All changes pushed live to [https://github.com/lemagouill/434](https://github.com/lemagouill/434).
+## 2. Remote Restored to `strp1`:
+- **Active Git Remote**: [https://github.com/lemagouill/strp1.git](https://github.com/lemagouill/strp1.git)
+- **Branch**: `main`
+- All latest modifications (Meta Pixel, strict Telegram contact tracking, hero sailboat video, clean URLs, 5-account hero carousel, transparent 3D logo) are fully pushed and synchronized.
