@@ -1,9 +1,14 @@
-# Walkthrough — Proper Sailboat Hero Background Restored
+# Walkthrough — Meta Pixel & Contact Event Tracking Deployed
 
-## 1. Hero Background Video Correction:
-- **Restored Sailboat Video**: Switched from the desktop capture (`tlg raw/20 final.mp4`) back to the authentic **CorsoVault animated sailboat ocean sunset video** (`corso/hero-bg-c.mp4`).
-- **Web Optimized & FastStart**: Encoded with `+faststart` and optimal compression for instant streaming without delay.
-- **Matching Poster**: Generated high-res frame 1 sailboat poster (`assets/images/hero-poster.jpg` & `assets/images/hero-poster.webp`).
+## 1. Meta (Facebook) Pixel Installed:
+- **Pixel ID**: `1093150999936694`
+- **Global Deployment**: Added the complete Meta Pixel snippet (script + noscript fallback) across all HTML pages (`index.html`, `browse.html`, `accounts.html`, `sell.html`, `how-it-works.html`, `faq.html`, `contact.html`, `legal.html`, `terms.html`).
+- **Standard `PageView` Event**: Automatically tracked upon every page visit.
 
-## 2. GitHub Push:
-- Pushed directly to [https://github.com/lemagouill/434](https://github.com/lemagouill/434).
+## 2. Standard `Contact` Event Tracking:
+- **On Contact Page Load (`contact.html`)**: Triggers `fbq('track', 'Contact')` automatically.
+- **On Form Submission (`contact.html`, `sell.html`)**: Triggers `fbq('track', 'Contact')` when any user submits an account request / inquiry / valuation before opening Telegram.
+- **On Any Telegram Interaction**: Added a global click listener in `assets/js/main.js` that fires `fbq('track', 'Contact')` whenever a visitor clicks any Telegram CTA button, direct link (`t.me`), or the floating Telegram support badge.
+
+## 3. GitHub Push:
+- All changes pushed live to [https://github.com/lemagouill/434](https://github.com/lemagouill/434).
