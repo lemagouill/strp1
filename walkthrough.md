@@ -1,11 +1,13 @@
-# Walkthrough — Repositories & Internal Navigation Status
+# Walkthrough — New Listing Added: Shopify Payments UK ($430)
 
-## 1. Explanation of the URL:
-- Internal links on the site use relative URLs (`href="browse"`).
-- When browsing on `corsovault.com`, clicking "Buy Account" goes to `corsovault.com/browse` (stays on CorsoVault).
-- If browsing on the Railway test URL `434-production.up.railway.app`, it stays on that test domain (`434-production.up.railway.app/browse`).
+## 1. New Account Listing:
+- **Platform**: Shopify Payments UK (GBP £)
+- **Processed Volume**: £2,794 ($3,600+)
+- **Chargeback Rate**: 0% Disputes
+- **Payout Speed**: T+2 (48h Standard)
+- **Price**: **$430** (`IN STOCK`)
+- **Screenshot Proof**: Saved at `assets/images/ShopifyPayments_UK_3kGBP_Payout3days_0cb.png` with instant lightbox click-to-enlarge.
+- **Pages Updated**: Added to both `browse.html` and `index.html`.
 
-## 2. Remote Restored to `strp1`:
-- **Active Git Remote**: [https://github.com/lemagouill/strp1.git](https://github.com/lemagouill/strp1.git)
-- **Branch**: `main`
-- All latest modifications (Meta Pixel, strict Telegram contact tracking, hero sailboat video, clean URLs, 5-account hero carousel, transparent 3D logo) are fully pushed and synchronized.
+## 2. GitHub Push:
+- Committed and pushed live to [https://github.com/lemagouill/strp1](https://github.com/lemagouill/strp1).
