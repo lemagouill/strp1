@@ -1,12 +1,13 @@
-# Walkthrough — Price Update: Stripe France EI ($1,800)
+# Walkthrough — Price Update: Shopify Payments USA ($980)
 
 ## 1. Price Adjustment:
-- **Listing**: Stripe France EI — $27,000 Processed (Instant Payout)
-- **Updated Price**: `$1,250` ➔ **`$1,800`**
+- **Listing**: Shopify Payments USA — $20,000 Processed (0% CB)
+- **Updated Price**: `$840` ➔ **`$980`**
 - **Updated Locations**:
-  - `index.html` (Hero live preview slider 4 + featured card 4)
-  - `browse.html` (Complete inventory card 4)
-  - `contact.html` (Order dropdown selection `STP-FR-25K`)
+  - `index.html` (Hero live preview slider 5 + featured card 6)
+  - `browse.html` (Complete inventory card 6)
+  - `contact.html` (Order dropdown selection `SHP-USA-20K`)
+  - `accounts.html` (Comparison matrix price range)
 
 ## 2. GitHub Deployment:
 - Committed and pushed live to [https://github.com/lemagouill/strp1](https://github.com/lemagouill/strp1).
