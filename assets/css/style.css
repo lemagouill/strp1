@@ -345,6 +345,20 @@ code, kbd { font-family: var(--mono); font-size: .9em; }
   object-fit: cover;
   filter: brightness(1.02) contrast(1.05) saturate(1.2);
 }
+.hero-corsopay-video-bg video::-webkit-media-controls,
+.hero-corsopay-video-bg video::-webkit-media-controls-start-playback-button,
+.hero-corsopay-video-bg video::-webkit-media-controls-play-button,
+.hero-corsopay-video-bg video::-webkit-media-controls-overlay-play-button,
+.hero-corsopay-video-bg video::-webkit-media-controls-panel,
+.hero-corsopay-video-bg video::-webkit-media-controls-enclosure {
+  display: none !important;
+  -webkit-appearance: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
 .hero-corsopay-video-overlay {
   position: absolute;
   inset: 0;

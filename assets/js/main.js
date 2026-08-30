@@ -400,4 +400,40 @@
       window.fbq('track', 'Contact');
     }
   });
+
+  /* ---------- Bulletproof iOS Safari Autoplay Handler ---------- */
+  var heroVideo = document.querySelector('.hero-corsopay-video-bg video');
+  if (heroVideo) {
+    heroVideo.muted = true;
+    heroVideo.defaultMuted = true;
+    heroVideo.setAttribute('muted', '');
+    heroVideo.setAttribute('playsinline', '');
+    heroVideo.setAttribute('webkit-playsinline', '');
+
+    var forcePlay = function() {
+      if (heroVideo.paused) {
+        var playPromise = heroVideo.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(function() {
+            var resumeOnTouch = function() {
+              heroVideo.play().catch(function() {});
+              ['touchstart', 'touchend', 'scroll', 'click'].forEach(function(evt) {
+                document.removeEventListener(evt, resumeOnTouch);
+              });
+            };
+            ['touchstart', 'touchend', 'scroll', 'click'].forEach(function(evt) {
+              document.addEventListener(evt, resumeOnTouch, { passive: true, once: true });
+            });
+          });
+        }
+      }
+    };
+
+    forcePlay();
+    document.addEventListener('DOMContentLoaded', forcePlay);
+    window.addEventListener('load', forcePlay);
+    document.addEventListener('visibilitychange', function() {
+      if (document.visibilityState === 'visible') forcePlay();
+    });
+  }
 })();
