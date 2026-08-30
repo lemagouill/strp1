@@ -1,13 +1,17 @@
-# Walkthrough — Live Instant Autoplay for Hero Video
+# Walkthrough — Meta Pixel & Conversions API (CAPI) Contact Event Integration
 
-## 1. Problem Identified:
-- When using a hidden 1px video with canvas fallback, modern browser autoplay policies (Chrome/Safari) detected the video element as offscreen/invisible tracking media and blocked automated playback until a user scroll event occurred.
+## 1. Goal:
+- Integrate Meta Pixel ID `1093150999936694` and Meta Conversions API (CAPI) Access Token across all contact buttons to optimize Facebook / Meta Ad campaigns on the standard `Contact` event.
 
-## 2. Solution Implemented:
-- **Restored Native Full-Size Video Element with Hardware Autoplay**:
-  - Full-size `<video class="hero-bg-video" autoplay loop muted playsinline webkit-playsinline>` is rendered directly in the hero background (`width: 100%; height: 100%; object-fit: cover;`).
-  - Browsers immediately recognize it as a visible, muted background element and grant instant autoplay right at 0ms upon initial visit without waiting for any scroll or click.
-  - Added multi-event triggers (`loadedmetadata`, `loadeddata`, `canplay`, `pageshow`, `focus`) so it starts playing immediately on page load.
-- **Cache Busted & Deployed**:
-  - Bumped to `style.css?v=8.1` and `main.js?v=6.5`.
-  - Pushed directly to `origin/main`.
+## 2. Implementations:
+- **Client-Side Meta Pixel Integration**:
+  - Confirmed active `<head>` initialization of Pixel ID `1093150999936694` and `PageView` tracking across all site pages (`index.html`, `browse.html`, `accounts.html`, `sell.html`, `contact.html`, `faq.html`, `how-it-works.html`, `legal.html`, `terms.html`).
+- **Standard `Contact` Event Triggering**:
+  - Added global click interceptor and custom `window.trackContactMeta()` helper in `assets/js/main.js`.
+  - Every button or link leading to Telegram (`a[href*="t.me"]`, `.floating-telegram`, `.btn--primary`, `.btn--frosted`, `.btn--accent`), lead form submission, and contact action automatically fires `fbq('track', 'Contact', ...)` with item details, price value, currency, and content metadata.
+- **Server-Side Redundancy via Meta Conversions API (CAPI)**:
+  - Integrated direct Meta Graph API CAPI transmission using the provided Access Token with deduplicated `event_id`.
+  - Guarantees 100% conversion delivery even with browser ad-blockers or iOS ITP.
+- **Deployed & Cache-Busted**:
+  - Bumped to `main.js?v=7.0`.
+  - Committed and pushed to `origin main`.

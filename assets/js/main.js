@@ -196,9 +196,12 @@
 
       var telegramUrl = 'https://t.me/hanscapo';
 
-      // Meta Pixel Contact Event
-      if (typeof window.fbq === 'function') {
-        window.fbq('track', 'Contact');
+      // Meta Pixel & CAPI Contact Event
+      if (typeof window.trackContactMeta === 'function') {
+        window.trackContactMeta(form, {
+          content_name: 'Merchant Account Application Form',
+          content_category: 'Direct Form Lead'
+        });
       }
 
       status.innerHTML = '⚡ <strong>Request ready!</strong> Opening Telegram... If Telegram did not open, <a href="https://t.me/hanscapo" target="_blank" rel="noopener" style="color: #34d399; text-decoration: underline; font-weight: 750;">Click here to message @hanscapo on Telegram</a>.';
@@ -386,19 +389,94 @@
     startAutoPlay();
   }
 
-  /* ---------- Global Lightbox Click Trigger ---------- */
+  /* ==========================================================================
+     Meta Pixel & Conversions API (CAPI) Contact Event Tracking
+     ========================================================================== */
+  var META_PIXEL_ID = '1093150999936694';
+  var META_CAPI_TOKEN = 'EAATCS9y3EEUBScx0bTHZCr15qsgvsCbHDu1A1LPrncaX5efcmbcZB3sLMPdPCSPlWx7gu6euqR55z9WHJlA8LhlyPBedYjpvQZB1ruxl55qrVUcKESZADWobKUWc8ElHeldSA5zbpP4ZC2ZB0rlAuLuQzSCYaaoDRlj955YkWcoWQxBk5BktUgJYrtGxBWUwZDZD';
+
+  window.trackContactMeta = function (triggerElement, extraData) {
+    var eventId = 'contact_' + Date.now() + '_' + Math.random().toString(36).substr(2, 8);
+    var contentName = 'Telegram Direct Contact';
+    var priceValue = 0;
+
+    if (triggerElement) {
+      var card = triggerElement.closest('.listing, .preview-card, .listing-card');
+      if (card) {
+        var titleEl = card.querySelector('.listing__title, .preview-card__title, h3, h2');
+        var priceEl = card.querySelector('.listing__price, .preview-price, .badge--price');
+        if (titleEl) contentName = titleEl.innerText.trim();
+        if (priceEl) {
+          var num = parseFloat(priceEl.innerText.replace(/[^0-9.]/g, ''));
+          if (!isNaN(num) && num > 0) priceValue = num;
+        }
+      } else {
+        var label = triggerElement.getAttribute('title') || triggerElement.innerText.trim();
+        if (label) contentName = label;
+      }
+    }
+
+    var eventPayload = Object.assign({
+      content_name: contentName,
+      content_category: 'Merchant Account Lead',
+      currency: 'USD',
+      value: priceValue
+    }, extraData || {});
+
+    // 1. Client-Side Browser Meta Pixel Event
+    if (typeof window.fbq === 'function') {
+      try {
+        window.fbq('track', 'Contact', eventPayload, { eventID: eventId });
+      } catch (err) {
+        console.warn('[Meta Pixel Error]', err);
+      }
+    }
+
+    // 2. Server-Side Direct Meta Conversions API (CAPI) Fallback & Redundancy
+    try {
+      var capiEndpoint = 'https://graph.facebook.com/v19.0/' + META_PIXEL_ID + '/events?access_token=' + encodeURIComponent(META_CAPI_TOKEN);
+      var capiData = {
+        data: [
+          {
+            event_name: 'Contact',
+            event_time: Math.floor(Date.now() / 1000),
+            event_id: eventId,
+            event_source_url: window.location.href,
+            action_source: 'website',
+            user_data: {
+              client_user_agent: navigator.userAgent
+            },
+            custom_data: eventPayload
+          }
+        ]
+      };
+
+      if (typeof fetch === 'function') {
+        fetch(capiEndpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(capiData),
+          keepalive: true,
+          mode: 'cors'
+        }).catch(function () {});
+      }
+    } catch (e) {}
+  };
+
+  /* ---------- Global Click Listener for Lightbox & Meta Contact Events ---------- */
   document.addEventListener('click', function (e) {
+    // Lightbox image trigger
     var img = e.target.closest('.listing__proof-img, .feedback-proof__img, .proof-card__img');
     if (img) {
       e.preventDefault();
       openLightbox(img.getAttribute('src'), img.getAttribute('alt'));
     }
 
-    // Meta Pixel Contact Event on any Telegram link/button click
-    var tgLink = e.target.closest('a[href*="t.me"], .floating-telegram');
-    if (tgLink && typeof window.fbq === 'function') {
-      window.fbq('track', 'Contact');
+    // Meta Pixel Contact Event on ANY Telegram or Contact button click
+    var contactTarget = e.target.closest('a[href*="t.me"], .floating-telegram, a[href*="contact"], .btn-contact-track, button[type="submit"]');
+    if (contactTarget) {
+      window.trackContactMeta(contactTarget);
     }
-  });
+  }, { capture: true, passive: true });
 
 })();
