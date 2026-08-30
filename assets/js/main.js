@@ -472,8 +472,8 @@
       openLightbox(img.getAttribute('src'), img.getAttribute('alt'));
     }
 
-    // Meta Pixel Contact Event on ANY Telegram or Contact button click
-    var contactTarget = e.target.closest('a[href*="t.me"], .floating-telegram, a[href*="contact"], .btn-contact-track, button[type="submit"]');
+    // Meta Pixel Contact Event on ABSOLUTELY ALL buttons, CTAs and contact links
+    var contactTarget = e.target.closest('a.btn, button.btn, .btn, .btn--primary, .btn--accent, .btn--frosted, .btn--ghost, .btn--lg, .btn--block, a[href*="t.me"], .floating-telegram, .sticky-cta a, a[href*="contact"], a[href*="sell"], a[href*="browse"], a[href*="accounts"], button[type="submit"], [role="button"], .nav__cta, .brand__cta');
     if (contactTarget) {
       window.trackContactMeta(contactTarget);
     }
