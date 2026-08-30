@@ -338,21 +338,15 @@ code, kbd { font-family: var(--mono); font-size: .9em; }
   inset: 0;
   z-index: 0;
   overflow: hidden;
-}
-.hero-canvas {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  display: block;
   pointer-events: none;
-  filter: brightness(1.05) contrast(1.06) saturate(1.22);
 }
 .hero-corsopay-video-bg video {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: 50% 45%;
   filter: brightness(1.02) contrast(1.05) saturate(1.2);
+  pointer-events: none;
 }
 .hero-corsopay-video-bg video::-webkit-media-controls,
 .hero-corsopay-video-bg video::-webkit-media-controls-start-playback-button,
