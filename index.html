@@ -19,7 +19,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@500;600;700&amp;display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="assets/css/style.css?v=7.7">
+<!-- Instant Critical Media Preload (Faststart Hero Video & Poster) -->
+<link rel="preload" as="image" href="assets/images/hero-poster.jpg" fetchpriority="high">
+<link rel="preload" as="video" href="assets/images/hero-bg-c.mp4" type="video/mp4" fetchpriority="high">
+
+<link rel="stylesheet" href="assets/css/style.css?v=7.8">
 <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
@@ -177,7 +181,7 @@ src="https://www.facebook.com/tr?id=1093150999936694&ev=PageView&noscript=1"/>
             <div class="preview-slide is-active" data-index="0">
               <div class="preview-card">
                 <div class="listing__proof-box" style="margin-bottom:.5rem">
-                  <img src="assets/images/Stripe_USA_82k_2026_InstantPayout.png" alt="Stripe USA $82k Instant Payout Dashboard Proof" class="listing__proof-img">
+                  <img src="assets/images/Stripe_USA_82k_2026_InstantPayout.png" alt="Stripe USA $82k Instant Payout Dashboard Proof" class="listing__proof-img" loading="lazy" decoding="async">
                   <span class="listing__proof-tag"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg> Click to enlarge</span>
                 </div>
                 <div class="preview-card__head">
@@ -223,7 +227,7 @@ src="https://www.facebook.com/tr?id=1093150999936694&ev=PageView&noscript=1"/>
             <div class="preview-slide" data-index="1">
               <div class="preview-card">
                 <div class="listing__proof-box" style="margin-bottom:.5rem">
-                  <img src="assets/images/Stripe_USA_73k_2026_InstantPayout.png" alt="Stripe USA $73k Instant Payout Dashboard Proof" class="listing__proof-img">
+                  <img src="assets/images/Stripe_USA_73k_2026_InstantPayout.png" alt="Stripe USA $73k Instant Payout Dashboard Proof" class="listing__proof-img" loading="lazy" decoding="async">
                   <span class="listing__proof-tag"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg> Click to enlarge</span>
                 </div>
                 <div class="preview-card__head">
@@ -269,7 +273,7 @@ src="https://www.facebook.com/tr?id=1093150999936694&ev=PageView&noscript=1"/>
             <div class="preview-slide" data-index="2">
               <div class="preview-card">
                 <div class="listing__proof-box" style="margin-bottom:.5rem">
-                  <img src="assets/images/Stripe_FR_31kEUR_2026_InstantPayout.png" alt="Stripe France 31k€ Dashboard Proof" class="listing__proof-img">
+                  <img src="assets/images/Stripe_FR_31kEUR_2026_InstantPayout.png" alt="Stripe France 31k€ Dashboard Proof" class="listing__proof-img" loading="lazy" decoding="async">
                   <span class="listing__proof-tag"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg> Click to enlarge</span>
                 </div>
                 <div class="preview-card__head">
@@ -315,7 +319,7 @@ src="https://www.facebook.com/tr?id=1093150999936694&ev=PageView&noscript=1"/>
             <div class="preview-slide" data-index="3">
               <div class="preview-card">
                 <div class="listing__proof-box" style="margin-bottom:.5rem">
-                  <img src="assets/images/Stripe_FR_25kEUR_2026_InstantPayout.png" alt="Stripe France 25k€ Dashboard Proof" class="listing__proof-img">
+                  <img src="assets/images/Stripe_FR_25kEUR_2026_InstantPayout.png" alt="Stripe France 25k€ Dashboard Proof" class="listing__proof-img" loading="lazy" decoding="async">
                   <span class="listing__proof-tag"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg> Click to enlarge</span>
                 </div>
                 <div class="preview-card__head">
@@ -361,7 +365,7 @@ src="https://www.facebook.com/tr?id=1093150999936694&ev=PageView&noscript=1"/>
             <div class="preview-slide" data-index="4">
               <div class="preview-card">
                 <div class="listing__proof-box" style="margin-bottom:.5rem">
-                  <img src="assets/images/ShopifyPayments_USA_20k_Payout2-3days_0cb.png" alt="Shopify Payments USA $20k Dashboard Proof" class="listing__proof-img">
+                  <img src="assets/images/ShopifyPayments_USA_20k_Payout2-3days_0cb.png" alt="Shopify Payments USA $20k Dashboard Proof" class="listing__proof-img" loading="lazy" decoding="async">
                   <span class="listing__proof-tag"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg> Click to enlarge</span>
                 </div>
                 <div class="preview-card__head">
@@ -670,7 +674,7 @@ src="https://www.facebook.com/tr?id=1093150999936694&ev=PageView&noscript=1"/>
         <!-- Real Card 1: Stripe USA $82k Instant Payout -->
         <article class="listing reveal" data-tags="instant payout us llc 3 ans+ stripe selfie kyc stock senior video">
           <div class="listing__proof-box">
-            <img src="assets/images/Stripe_USA_82k_2026_InstantPayout.png" alt="Stripe USA $82k Instant Payout Dashboard Screenshot Proof" class="listing__proof-img">
+            <img src="assets/images/Stripe_USA_82k_2026_InstantPayout.png" alt="Stripe USA $82k Instant Payout Dashboard Screenshot Proof" class="listing__proof-img" loading="lazy" decoding="async">
             <span class="listing__proof-tag"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg> Click to enlarge</span>
           </div>
           <div class="listing__top">
@@ -701,7 +705,7 @@ src="https://www.facebook.com/tr?id=1093150999936694&ev=PageView&noscript=1"/>
         <!-- Real Card 2: Stripe USA $73k Instant Payout -->
         <article class="listing reveal" data-tags="instant payout us llc 3 ans+ stripe selfie kyc stock senior">
           <div class="listing__proof-box">
-            <img src="assets/images/Stripe_USA_73k_2026_InstantPayout.png" alt="Stripe USA $73k Instant Payout Dashboard Screenshot Proof" class="listing__proof-img">
+            <img src="assets/images/Stripe_USA_73k_2026_InstantPayout.png" alt="Stripe USA $73k Instant Payout Dashboard Screenshot Proof" class="listing__proof-img" loading="lazy" decoding="async">
             <span class="listing__proof-tag"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg> Click to enlarge</span>
           </div>
           <div class="listing__top">
@@ -732,7 +736,7 @@ src="https://www.facebook.com/tr?id=1093150999936694&ev=PageView&noscript=1"/>
         <!-- Real Card 3: Stripe France $34k Instant Payout -->
         <article class="listing reveal" data-tags="instant payout france 2 ans+ stripe selfie kyc stock senior">
           <div class="listing__proof-box">
-            <img src="assets/images/Stripe_FR_31kEUR_2026_InstantPayout.png" alt="Stripe France 31k€ Instant Payout Dashboard Screenshot Proof" class="listing__proof-img">
+            <img src="assets/images/Stripe_FR_31kEUR_2026_InstantPayout.png" alt="Stripe France 31k€ Instant Payout Dashboard Screenshot Proof" class="listing__proof-img" loading="lazy" decoding="async">
             <span class="listing__proof-tag"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg> Click to enlarge</span>
           </div>
           <div class="listing__top">
@@ -763,7 +767,7 @@ src="https://www.facebook.com/tr?id=1093150999936694&ev=PageView&noscript=1"/>
         <!-- Real Card 4: Stripe France $27k Instant Payout -->
         <article class="listing reveal" data-tags="instant payout france 2 ans+ stripe selfie kyc stock">
           <div class="listing__proof-box">
-            <img src="assets/images/Stripe_FR_25kEUR_2026_InstantPayout.png" alt="Stripe France 25k€ Instant Payout Dashboard Screenshot Proof" class="listing__proof-img">
+            <img src="assets/images/Stripe_FR_25kEUR_2026_InstantPayout.png" alt="Stripe France 25k€ Instant Payout Dashboard Screenshot Proof" class="listing__proof-img" loading="lazy" decoding="async">
             <span class="listing__proof-tag"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg> Click to enlarge</span>
           </div>
           <div class="listing__top">
@@ -794,7 +798,7 @@ src="https://www.facebook.com/tr?id=1093150999936694&ev=PageView&noscript=1"/>
         <!-- Real Card 5: Stripe USA $7k Payout 2 Days -->
         <article class="listing reveal" data-tags="payout t+1 us llc stripe selfie kyc stock">
           <div class="listing__proof-box">
-            <img src="assets/images/Stripe_USA_7k_2026_Payout2days.png" alt="Stripe USA $7k Dashboard Screenshot Proof" class="listing__proof-img">
+            <img src="assets/images/Stripe_USA_7k_2026_Payout2days.png" alt="Stripe USA $7k Dashboard Screenshot Proof" class="listing__proof-img" loading="lazy" decoding="async">
             <span class="listing__proof-tag"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg> Click to enlarge</span>
           </div>
           <div class="listing__top">
@@ -825,7 +829,7 @@ src="https://www.facebook.com/tr?id=1093150999936694&ev=PageView&noscript=1"/>
         <!-- Real Card 6: Shopify Payments USA $20k Payout 2-3 Days -->
         <article class="listing reveal" data-tags="payout t+1 us llc shopify 2 ans+ selfie kyc stock">
           <div class="listing__proof-box">
-            <img src="assets/images/ShopifyPayments_USA_20k_Payout2-3days_0cb.png" alt="Shopify Payments USA $20k Dashboard Screenshot Proof" class="listing__proof-img">
+            <img src="assets/images/ShopifyPayments_USA_20k_Payout2-3days_0cb.png" alt="Shopify Payments USA $20k Dashboard Screenshot Proof" class="listing__proof-img" loading="lazy" decoding="async">
             <span class="listing__proof-tag"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg> Click to enlarge</span>
           </div>
           <div class="listing__top">
@@ -856,7 +860,7 @@ src="https://www.facebook.com/tr?id=1093150999936694&ev=PageView&noscript=1"/>
         <!-- Real Account 7: Shopify Payments UK £2.8k ($3,600) Payout 2-3 Days -->
         <article class="listing reveal" data-tags="payout t+1 uk shopify selfie kyc stock">
           <div class="listing__proof-box">
-            <img src="assets/images/ShopifyPayments_UK_3kGBP_Payout3days_0cb.png" alt="Shopify Payments UK £2.8k Dashboard Screenshot Proof" class="listing__proof-img">
+            <img src="assets/images/ShopifyPayments_UK_3kGBP_Payout3days_0cb.png" alt="Shopify Payments UK £2.8k Dashboard Screenshot Proof" class="listing__proof-img" loading="lazy" decoding="async">
             <span class="listing__proof-tag"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg> Click to enlarge</span>
           </div>
           <div class="listing__top">
@@ -923,23 +927,23 @@ src="https://www.facebook.com/tr?id=1093150999936694&ev=PageView&noscript=1"/>
 
       <div class="proof-gallery">
         <div class="proof-card reveal">
-          <img src="assets/images/proof_telegram_delivery_1.png" alt="Telegram Handover Proof 1" class="proof-card__img">
+          <img src="assets/images/proof_telegram_delivery_1.png" alt="Telegram Handover Proof 1" class="proof-card__img" loading="lazy" decoding="async">
           <span class="proof-card__badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg> Click to enlarge</span>
         </div>
         <div class="proof-card reveal">
-          <img src="assets/images/proof_telegram_delivery_2.png" alt="Telegram Handover Proof 2" class="proof-card__img">
+          <img src="assets/images/proof_telegram_delivery_2.png" alt="Telegram Handover Proof 2" class="proof-card__img" loading="lazy" decoding="async">
           <span class="proof-card__badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg> Click to enlarge</span>
         </div>
         <div class="proof-card reveal">
-          <img src="assets/images/proof_telegram_delivery_3.png" alt="Telegram Handover Proof 3" class="proof-card__img">
+          <img src="assets/images/proof_telegram_delivery_3.png" alt="Telegram Handover Proof 3" class="proof-card__img" loading="lazy" decoding="async">
           <span class="proof-card__badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg> Click to enlarge</span>
         </div>
         <div class="proof-card reveal">
-          <img src="assets/images/proof_telegram_delivery_4.png" alt="Telegram Handover Proof 4" class="proof-card__img">
+          <img src="assets/images/proof_telegram_delivery_4.png" alt="Telegram Handover Proof 4" class="proof-card__img" loading="lazy" decoding="async">
           <span class="proof-card__badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg> Click to enlarge</span>
         </div>
         <div class="proof-card reveal">
-          <img src="assets/images/proof_telegram_delivery_5.png" alt="Telegram Handover Proof 5" class="proof-card__img">
+          <img src="assets/images/proof_telegram_delivery_5.png" alt="Telegram Handover Proof 5" class="proof-card__img" loading="lazy" decoding="async">
           <span class="proof-card__badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg> Click to enlarge</span>
         </div>
       </div>
