@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://corsovault.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://corsovault.com/</loc><changefreq>daily</changefreq><priority>1.0</priority></url>
   <url><loc>https://corsovault.com/browse</loc><changefreq>daily</changefreq><priority>0.95</priority></url>
-  <url><loc>https://corsovault.com/accounts</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://corsovault.com/sell</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://corsovault.com/how-it-works</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://corsovault.com/faq</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://corsovault.com/buy-stripe-account-usa</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://corsovault.com/buy-stripe-account-france</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://corsovault.com/buy-shopify-payments-account</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://corsovault.com/stripe-instant-payout-guide</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://corsovault.com/accounts</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://corsovault.com/sell</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://corsovault.com/how-it-works</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://corsovault.com/faq</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
   <url><loc>https://corsovault.com/contact</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://corsovault.com/legal</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <url><loc>https://corsovault.com/terms</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>

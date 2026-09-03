@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-# Replace the domain below with your own before going live.
-Sitemap: https://www.example.com/sitemap.xml
+Sitemap: https://corsovault.com/sitemap.xml
