@@ -406,8 +406,12 @@
         var titleEl = card.querySelector('.listing__title, .preview-card__title, h3, h2');
         var priceEl = card.querySelector('.listing__price, .preview-price, .badge--price');
         if (titleEl) contentName = titleEl.innerText.trim();
+        var currencyCode = 'USD';
         if (priceEl) {
-          var num = parseFloat(priceEl.innerText.replace(/[^0-9.]/g, ''));
+          var priceText = priceEl.innerText;
+          if (priceText.indexOf('€') !== -1) currencyCode = 'EUR';
+          else if (priceText.indexOf('£') !== -1) currencyCode = 'GBP';
+          var num = parseFloat(priceText.replace(/[^0-9.]/g, ''));
           if (!isNaN(num) && num > 0) priceValue = num;
         }
       } else {
@@ -419,7 +423,7 @@
     var eventPayload = Object.assign({
       content_name: contentName,
       content_category: 'Merchant Account Lead',
-      currency: 'USD',
+      currency: currencyCode || 'USD',
       value: priceValue
     }, extraData || {});
 

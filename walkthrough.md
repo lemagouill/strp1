@@ -1,16 +1,13 @@
-# Walkthrough — Comprehensive Meta Pixel & CAPI Contact Tracking on All Buttons
+# Walkthrough — New Stripe France Account Added (980€)
 
 ## 1. Goal:
-- Ensure that **every single contact button, CTA, and action link** across the entire website triggers the official Meta Pixel `Contact` standard event and the Meta Conversions API (CAPI) direct server-side pipeline.
+- Add the new Stripe France account (€3,192 gross volume, 3 days payout, price: 980€) with its dashboard screenshot proof and full metadata.
 
-## 2. Universal Click Capture:
-- Expanded selector in `assets/js/main.js` to automatically bind:
-  - All `.btn` buttons (`.btn--primary`, `.btn--accent`, `.btn--frosted`, `.btn--ghost`, `.btn--lg`, `.btn--block`, `a.btn`, `button.btn`).
-  - All Telegram direct buttons and floating badges (`a[href*="t.me"]`, `.floating-telegram`).
-  - All mobile and desktop sticky navigation CTA buttons (`.sticky-cta a`, `.nav__cta`, `.brand__cta`).
-  - All internal action links (`a[href*="contact"]`, `a[href*="sell"]`, `a[href*="browse"]`, `a[href*="accounts"]`).
-  - All form submissions (`button[type="submit"]`).
-- Automatic context extraction:
-  - If a user clicks on an account card (e.g. Stripe USA $82k @ $2,450), the event sends `content_name: "Stripe USA Account — $82,000 Processed ($2,450)"`, `value: 2450`, `currency: "USD"`.
-  - Sends dual-stream deduplicated events (`fbq('track', 'Contact', ...)` + direct Meta Graph CAPI API POST).
-- **All Pages Updated to `main.js?v=7.1`**.
+## 2. Changes Made:
+- **Asset Added**:
+  - Saved screenshot `assets/images/Stripe_FR_3kEUR_2026_Payout3days.png` (clean, lightweight 167KB PNG).
+- **Listings Updated**:
+  - `index.html`: Added Real Card 6 (Stripe France — €3,190 Processed, Payout 3 Days, 980€, In Stock).
+  - `browse.html`: Added Real Account 6 (Stripe France — €3,190 Processed, Payout 3 Days, 980€, In Stock).
+- **Meta Pixel & CAPI Enhanced**:
+  - Updated `assets/js/main.js` to automatically extract the currency symbol (`€` -> `EUR`, `$` -> `USD`, `£` -> `GBP`) and the exact value `980`, firing `fbq('track', 'Contact', ...)` and CAPI server-side payload with `currency: 'EUR'`, `value: 980`.
