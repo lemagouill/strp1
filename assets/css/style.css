@@ -945,6 +945,12 @@ code, kbd { font-family: var(--mono); font-size: .9em; }
   background: var(--canvas); border: 1px solid var(--line);
   border-radius: var(--r); padding: .95rem;
 }
+.listing .preview-metrics {
+  margin-bottom: 0.95rem;
+}
+.listing .preview-checklist {
+  margin-bottom: 1.1rem;
+}
 .preview-metric { display: flex; flex-direction: column; }
 .preview-metric__label { font-family: var(--mono); font-size: .65rem; letter-spacing: .08em; text-transform: uppercase; color: var(--faint); font-weight: 750; }
 .preview-metric__val { font-size: 1.15rem; font-weight: 850; color: var(--ink); margin-top: .15rem; }
@@ -962,7 +968,7 @@ code, kbd { font-family: var(--mono); font-size: .9em; }
   padding-top: 1rem; border-top: 1px solid var(--line);
 }
 .preview-price { display: block; font-size: 1.45rem; font-weight: 850; color: #ffffff; line-height: 1.1; letter-spacing: -.04em; }
-.preview-escrow { display: block; font-family: var(--mono); font-size: .68rem; color: var(--emerald-dark); font-weight: 750; margin-top: .2rem; }
+.preview-escrow { display: inline-flex; align-items: center; gap: 4px; font-family: var(--mono); font-size: .68rem; color: var(--emerald-dark); font-weight: 750; margin-top: .2rem; }
 
 .slider-bottom-controls {
   margin-top: 0.75rem;
@@ -1899,12 +1905,14 @@ code, kbd { font-family: var(--mono); font-size: .9em; }
   .preview-check {
     font-size: 0.78rem;
   }
-  .preview-card__foot {
+  .preview-card__foot,
+  .listing .listing__foot {
     flex-direction: column;
     align-items: stretch;
     gap: 0.65rem;
   }
-  .preview-card__foot .btn {
+  .preview-card__foot .btn,
+  .listing .listing__foot .btn {
     width: 100%;
     justify-content: center;
     padding: 0.8rem;
